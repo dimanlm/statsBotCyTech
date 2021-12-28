@@ -14,7 +14,7 @@ const r6api = new R6API({ email, password });
  * @param {username} u 
  * @returns a promise of array containting profile info
  */
-async function findPlayer(u){
+ async function findPlayer(u){
     try{
         let player = await r6api.findByUsername(PLATFORM, u);
         return player;
@@ -119,30 +119,31 @@ function buttonRow () {
 /************************************************** */
 /**
  * The main function
- * @param {the message} message 
+ * @param {discord message} message 
  * @param {arguments, args[0] is a nickname} args 
  */
 async function execute(message, args) {
     let username = args[0]
-    const player = await findPlayer(username);
+    
+    switch(username){
+        case undefined:
+            message.reply("Command usage: `!r6 [nickname]` \n > ***Example:***\n > `!r6 sangriia.`")
+            break;
 
-    // if the promise of an array 'player' is empty, the player does not exist
-    if (player.length==0){
-        message.reply("This player does not exist")
-    }else{    
-        switch(username){
-            case undefined:
-                message.reply("Command usage: `!r6 [nickname] [(optional) type]` \n`[(optinal) type]` : \n**Seasonal ranked: ** just leave it empty \n**General: ** `g` \n**T Hunt: ** `th` \n\n ***Examples:***\n`!r6 sangriia.` `!r6 kmeme5 g`")
-                break;
+        default:
+            const player = await findPlayer(username);
 
-            default:
+            // if the promise of an array 'player' is empty, the player does not exist
+            if (player.length==0){
+                message.reply("This player does not exist")
+            }else{
                 const getPlayerStats = await getSeasonalRankedSummary(player[0]);
                 const buttons = buttonRow();
 
                 message.reply({ embeds: [getPlayerStats], components:[buttons] });
-                break;
-        }
-    }    
+            }
+            break;
+    }
 }
 
 /************************************************** */
@@ -150,6 +151,6 @@ async function execute(message, args) {
 
 module.exports = {
     name: 'r6',
-    description: "<nickname> <optional type>: Gets R6S stats.",
+    description: "<nickname>: Gets R6S stats.",
     execute 
 }
