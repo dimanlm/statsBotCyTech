@@ -1,10 +1,11 @@
 
 # NLM Bot
 
-Project built on DiscordJS v13.
+Some commits and branches will be missing because the main development repository is private.
 
+Project built on DiscordJS v13.
 The bot retrieves and displays Rainbow Six Siege stats in your
-server, thanks to [**r6api.js**](https://www.npmjs.com/package/r6api.js) package and Ubisoft's public API.
+server, thanks to [**r6api.js**](https://www.npmjs.com/package/r6api.js) package and Ubisoft's public API. You can only track players who play on PC.
 
 There are a variety of commands, you can use **$help** to see all of them.
 
