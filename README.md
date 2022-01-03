@@ -23,8 +23,7 @@ or
 nodemon index.js
 ```
 ___
-___
-___
+
 # Rainbow Six Tracker
 ### Commands
 Seasonal RANKED Summary:
