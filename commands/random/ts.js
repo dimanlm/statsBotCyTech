@@ -2,18 +2,18 @@ const { MessageActionRow, MessageButton } = require('discord.js');
 
 module.exports ={
     name: 'ts',
-    description: ": Sends info about our TeamSpeak server.",
+    description: "Info about our TeamSpeak server",
     execute(msg){
                 
         const row = new MessageActionRow().addComponents(
 
             new MessageButton()
                 .setLabel('Pay for the server')
-                .setURL('https://nlm.xts3.ru')
+                .setURL('HTTP-LINK-TO-A-PAGE')
                 .setStyle('LINK'),
         );
 
-        msg.reply({ content: '**TeamSpeak server link:** ```nlm.xts3.ru```', components: [row] });
+        msg.reply({ content: '**TeamSpeak server link:** ```TEAMSPEAK-IP```', components: [row] });
 
 
     }

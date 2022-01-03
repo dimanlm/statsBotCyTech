@@ -3,26 +3,38 @@ const { TOKEN } = require("./data/config.json");
 const { Client, Intents, Collection } = require('discord.js');
 
 const botClient = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
-const prefix = '!'
+const prefix = '$'
  /************************************** */
 
-botClient.commandsCollection = new Collection();
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
-for (const file of commandFiles) {
-	const requestedCommand = require(`./commands/${file}`);
-	botClient.commandsCollection.set(requestedCommand.name, requestedCommand);
-}
+
+botClient.commandsCollection = new Collection();
+
+const cmdDirs = fs.readdirSync('./commands');
+
+/* Loop through subdirectories in commands directory */
+for (let dir of cmdDirs) {
+    /* Read every subdirectory and filter for JS files */
+    let commandFiles = fs.readdirSync(`./commands/${dir}`)
+    .filter(f => f.endsWith('.js'));
+
+    /* Loop through every file */
+    for (let file of commandFiles) {
+        /* Set command file */
+        let command = require(`./commands/${dir}/${file}`);
+        botClient.commandsCollection.set(command.name, command);
+    };
+};
 
  /************************************** */
 
 botClient.on('ready', () => {
     console.log(`Logged in!`);
-    botClient.user.setActivity('Rainbow Six Siege', { type: 'WATCHING' }); // set a Status 
+    botClient.user.setActivity('Casual | $help', { type: 'PLAYING' }); // set a Status 
 });
 
 
-botClient.on('message', function(msg) {
+botClient.on('messageCreate', function(msg) {
 
     if (msg.author.bot || !msg.content.startsWith(prefix)) return;
   
