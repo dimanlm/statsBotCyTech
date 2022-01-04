@@ -23,6 +23,38 @@ or
 ```
 nodemon index.js
 ```
+
+# Usage
+Firstly, you need to put your private Discord bot token in: 
+- **nlmbot-public/data/config.json**
+
+```
+{
+    "TOKEN": "YOUR-BOT-TOKEN"
+}
+```
+Then, you need to complete the file with default data to set up the bot:
+
+- **nlmbot-public/data/default.json**
+
+```
+{
+    "YOUR_UBI_ACC_MAIL": "YOUR-UBI-ACC-EMAIL",
+    "YOUR_UBI_ACC_PASSWORD": "YOUR-UBI-ACC-PASSWD",
+    "PLATFORM" : "DEFAULT-PLATFORM",
+    "REGION": "DEFAULT-REGION",
+    "CURRENT_SEASON": "SEASON-NUMBER",
+    "SEASON_RELEASE": "YEARMONTHDAY"
+}
+```
+
+### Default data values
+- PLATFORM: "uplay", "psn" or "xbl"
+- REGION: "emea", "ncsa" or "apac"
+- CURRENT_SEASON: Values between 1-24 (latest season)
+- SEASON_RELEASE: For example _"20211130"_ : 30th Nov 2021
+_Note : As default REGION, you can just write ***emea***, because Ubisoft made ranks global._
+
 ___
 
 # Rainbow Six Tracker
