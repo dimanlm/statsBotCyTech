@@ -53,6 +53,7 @@ Then, you need to complete the file with default data to set up the bot:
 - REGION: "emea", "ncsa" or "apac"
 - CURRENT_SEASON: Values between 1-24 (latest season)
 - SEASON_RELEASE: For example _"20211130"_ : 30th Nov 2021
+
 _Note : As default REGION, you can just write ***emea***, because Ubisoft made ranks global._
 
 ___
