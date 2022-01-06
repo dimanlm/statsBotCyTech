@@ -1,5 +1,6 @@
 const { MessageEmbed } = require('discord.js');
-var def = require('./stat-getters/default')
+var def = require('./stat-getters/default');
+var help = require('../support/help');
 
 /************************************************** */
 /**
@@ -13,7 +14,7 @@ async function execute(message, args) {
           
     switch(username){
         case undefined:
-            message.reply("Command usage: `!general [nickname]` \n > ***Example:***\n > `!general Shaiiko.BDS`")
+            help.execute(message)
             break;
 
         default:

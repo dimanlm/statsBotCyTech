@@ -1,7 +1,10 @@
 // Here we send custom requests to Ubisoft's public API
 const auth_1 = require('../../../node_modules/r6api.js/dist/auth');
+const utils_1 = require("../../../node_modules/r6api.js/dist/utils.js");
+const constants = require('../../../node_modules/r6api.js/dist/constants');
 var axios = require('axios');
-const { SEASON_RELEASE } = require("../../../data/default.json");
+
+const { PLATFORM, TOTAL_NUMBER_OF_SEASONS } = require("../../../data/default.json");
 
 let date_ob = new Date();
 
@@ -9,10 +12,19 @@ let date_ob = new Date();
 let today = date_ob.getFullYear() + ("0" + (date_ob.getMonth() + 1)).slice(-2) +  ("0" + date_ob.getDate()).slice(-2);
 
 module.exports = {
-    getSeasonalOperators: async function(p){
+    /**
+     * 
+     * @param {player's id} p 
+     * @returns seasonal stats about operators
+     */
+    // needs to be fixed
+    getSeasonalOperators: async function(seasonReleaseDate, p){
+        // default date format example: 2021-11-30T00:00:00.000Z
+        // we need: 20211130
+        seasonReleaseDate = seasonReleaseDate.split('T')[0].replace(/-/g,'');
         var config = {
             method: 'get',
-            url: `https://r6s-stats.ubisoft.com/v1/current/operators/${p}?gameMode=all,ranked,casual,unranked&platform=PC&teamRole=attacker,defender&startDate=${SEASON_RELEASE}&endDate=${today}`,
+            url: `https://r6s-stats.ubisoft.com/v1/current/operators/${p}?gameMode=all,ranked,casual,unranked&platform=PC&teamRole=attacker,defender&startDate=${seasonReleaseDate}&endDate=${today}`,
             headers: { 
                 // getting the parameters from the session
                 'Ubi-SessionId': (await auth_1.getAuth()).sessionId, 
@@ -31,11 +43,18 @@ module.exports = {
         
         return res;
     },
-
+    
+    /**
+     * 
+     * @param {player's id} p 
+     * @returns unranked overall stats
+     */
     getUnrankedStats: async function(p){
+        var unrankedStat=[];
+
         var config = {
             method: 'get',
-            url: `https://r6s-stats.ubisoft.com/v1/seasonal/summary/${p}?gameMode=unranked&platform=PC`,
+            url: `https://r6s-stats.ubisoft.com/v1/seasonal/summary/${p}?gameMode=unranked,ranked&platform=PC`,
             headers: { 
                 // getting the parameters from the session
                 'Ubi-SessionId': (await auth_1.getAuth()).sessionId, 
@@ -51,7 +70,79 @@ module.exports = {
                     .catch(function (error) {
                     console.log(error);
                     });
-        return res;
+        if (res=='') return;
+        let unranked = res.platforms.PC.gameModes.unranked.teamRoles;
+
+        // get the play hours
+        let unrankedPlaytime = 0
+        for (let i=0; i < unranked.all.length; i++){
+            unrankedPlaytime+=unranked.all[i].minutesPlayed
+        }
+
+        // get the wins/losses
+        let wl = [0,0]
+        for (let i=0; i < unranked.all.length; i++){
+            wl[0]+=unranked.all[i].matchesWon;
+            wl[1]+=unranked.all[i].matchesLost;
+        }
+
+        // get the kills/deaths
+        let kd = [0,0]
+        for (let i=0; i < unranked.all.length; i++){
+            kd[0]+=unranked.all[i].kills;
+            kd[1]+=unranked.all[i].death;
+        }
+
+        // get kills per match
+        kpm = kd[0]/(wl[0]+wl[1])
+
+        // played hours, winloss ratio, kd ratio, kills per match
+        unrankedStat.push((unrankedPlaytime/60), (wl[0]/wl[1]), (kd[0]/kd[1]), kpm)
+
+        return unrankedStat;
+    },
+
+    /**
+     * 
+     * @param {player's id} p 
+     * @returns 
+     */
+     getTheBestRank: async function(p){
+        // Variable to get the ranks of all season ids
+        allSeasonRequest = "";
+        for (let i=-1; Math.abs(i) <= TOTAL_NUMBER_OF_SEASONS; i--){
+            if (Math.abs(i)!=TOTAL_NUMBER_OF_SEASONS) allSeasonRequest += i + ',';
+            else allSeasonRequest += i;
+        }
+
+        var config = {
+            method: 'get',
+            url: `https://public-ubiservices.ubi.com/v1/spaces/${constants.SPACE_IDS[PLATFORM]}/sandboxes/OSBOR_PC_LNCH_A/r6karma/player_skill_records?board_ids=pvp_ranked&season_ids=${allSeasonRequest}&region_ids=${REGION}&profile_ids=${p}`,
+            headers: { 
+                // getting the parameters from the session
+                'Authorization': 'ubi_v1 t='+ (await auth_1.getAuth()).ticket,
+                'Ubi-AppId' : '3587dcbb-7f81-457c-9781-0e3f29f6f56a'
+            }
+        };
+
+        let res = await axios(config)
+                    .then(function (response) {
+                    return response.data;
+                    })
+                    .catch(function (error) {
+                    console.log(error);
+                    });
+                    
+        var allMaxMMR = [];
+        var rankName = '';
+        for (i=5; i < res.seasons_player_skill_records.length; i++){
+            rankName = utils_1.getRankNameFromRankId(res.seasons_player_skill_records[i].regions_player_skill_records[0].boards_player_skill_records[0].players_skill_records[0].max_rank, i+1); 
+            allMaxMMR.push({ "rank": rankName, "mmr":res.seasons_player_skill_records[i].regions_player_skill_records[0].boards_player_skill_records[0].players_skill_records[0].max_mmr });
+        }
+        
+        let bestRank = allMaxMMR.reduce((max, rank) => max.mmr > rank.mmr ? max : rank)
+
+        return bestRank;
     }
     
 }

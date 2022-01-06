@@ -7,7 +7,7 @@ require('dotenv').config();
 const { MessageEmbed } = require('discord.js');
 
 const R6API = require('r6api.js').default;
-const { YOUR_UBI_ACC_MAIL, YOUR_UBI_ACC_PASSWORD, PLATFORM, REGION, CURRENT_SEASON } = require("../../../data/default.json");
+const { YOUR_UBI_ACC_MAIL, YOUR_UBI_ACC_PASSWORD, PLATFORM, REGION } = require("../../../data/default.json");
 
 const { UBI_EMAIL: email = YOUR_UBI_ACC_MAIL, UBI_PASSWORD: password = YOUR_UBI_ACC_PASSWORD } = process.env;
 const r6api = new R6API({ email, password });
@@ -19,7 +19,7 @@ const r6api = new R6API({ email, password });
 /**
  * Export functions
  */
-module.exports = {
+ module.exports = {
 
     /**
      * Function that allows us to find and verify if a uplay profile exists
@@ -44,30 +44,32 @@ module.exports = {
      */
     getSeasonalRankedSummary: async function (p){
         stats = await r6api.getRanks(PLATFORM, p.id, { regionIds: REGION, boardIds: 'pvp_ranked' });
-
         if (stats.length==0 ){
             var embedStatMsg = new MessageEmbed()
                 .setColor('RED')
                 .setDescription("**" + p.username + "** does not have any stats")
             return(embedStatMsg);
         }
-        let rankedStatsPath = stats[0].seasons[CURRENT_SEASON].regions[REGION].boards.pvp_ranked;
-        //console.log(rankedStatsPath)
+        let rankedStatsPath = stats[0].seasons[Object.keys(stats[0].seasons)].regions[REGION].boards.pvp_ranked;
 
+        // when was the last data update
+        var statsUpdateTime = Math.abs(new Date(rankedStatsPath.updateTime)-new Date())/1000/60;
+        var statsUpdateMsg = "Updated " + (statsUpdateTime).toFixed(0) + " minute(s) ago"
+        if (statsUpdateTime>59){ statsUpdateTime=statsUpdateTime/60; statsUpdateMsg = "Updated " + (statsUpdateTime).toFixed(0) + " hour(s) ago"}
         // create embed message with stats
         var embedStatMsg = new MessageEmbed()
-            .setColor(stats[0].seasons[CURRENT_SEASON].seasonColor)
+            .setColor(stats[0].seasons[Object.keys(stats[0].seasons)].seasonColor)
             .setTitle("Open full profile")
             .setURL('https://r6.tracker.network/profile/id/'+ p.id)
             .setAuthor(p.username, p.avatar['146'])
-            .setDescription("**" + p.username + "'s** seasonal RANKED stats on **" + stats[0].seasons[CURRENT_SEASON].seasonName + "**")
+            .setDescription("**" + p.username + "'s** seasonal RANKED stats on **" + stats[0].seasons[Object.keys(stats[0].seasons)].seasonName + "**")
             .setThumbnail(rankedStatsPath.current.icon)
             .addFields(
-                { name: '__Current Rank__', value: ' > **'+rankedStatsPath.current.name +'**\n > **MMR** '+rankedStatsPath.current.mmr + '\n > **Last match **' + (rankedStatsPath.lastMatch.mmrChange<0?"":"+") + rankedStatsPath.lastMatch.mmrChange +'\n > **Max MMR**: '+ rankedStatsPath.max.mmr, inline: true },
-                { name: '__Pew Pew__', value: ' > **KD:** ' + rankedStatsPath.kd + '\n > **KM** ' + (rankedStatsPath.kills/rankedStatsPath.matches).toFixed(2) + '\n > **Kills** ' + rankedStatsPath.kills + '\n > **Deaths** ' + rankedStatsPath.deaths, inline: true },
-                { name: '__Matches__', value: ' > **WL **' + (rankedStatsPath.wins/rankedStatsPath.losses).toFixed(1) + '\n > **Matches **' + rankedStatsPath.matches + '\n > **Win ** ' +rankedStatsPath.wins + '\n > **Loss **' + rankedStatsPath.losses + '\n > **Abandon **' + rankedStatsPath.abandons, inline: true },
+                { name: '__Current Rank__', value: '>>> **'+rankedStatsPath.current.name +'**\n**MMR** '+rankedStatsPath.current.mmr + '\n**Last match **' + (rankedStatsPath.lastMatch.mmrChange<0?"":"+") + rankedStatsPath.lastMatch.mmrChange +'\n**Max MMR**: '+ rankedStatsPath.max.mmr, inline: true },
+                { name: '__Pew Pew__', value: '>>> **KD:** ' + rankedStatsPath.kd + '\n**KM** ' + (rankedStatsPath.kills/rankedStatsPath.matches).toFixed(2) + '\n**Kills** ' + rankedStatsPath.kills + '\n**Deaths** ' + rankedStatsPath.deaths, inline: true },
+                { name: '__Matches__', value: '>>> **WL **' + (rankedStatsPath.wins/rankedStatsPath.losses).toFixed(1) + '\n**Matches **' + rankedStatsPath.matches + '\n**Win ** ' +rankedStatsPath.wins + '\n**Loss **' + rankedStatsPath.losses + '\n**Abandon **' + rankedStatsPath.abandons, inline: true },
             )
-            .setFooter("Oh hi :')");  
+            .setFooter(statsUpdateMsg)
         return(embedStatMsg);
     },
 
@@ -81,28 +83,33 @@ module.exports = {
         stats = await r6api.getRanks(PLATFORM, p.id, { regionIds: REGION, boardIds: 'pvp_ranked' });
         //console.log(stats[0]);
         // if the promise of an array 'stats' is empty, there're no stats for this player
-        if (stats.length==0 || stats[0].seasons[CURRENT_SEASON].regions[REGION].boards.pvp_ranked.updateTime=='1970-01-01T00:00:00+00:00'){
+        if (stats.length==0 || stats[0].seasons[Object.keys(stats[0].seasons)].regions[REGION].boards.pvp_ranked.updateTime=='1970-01-01T00:00:00+00:00'){
             var embedStatMsg = new MessageEmbed()
                 .setColor('RED')
                 .setDescription("**" + p.username + "** does not have any ranked stats this season")
             return embedStatMsg
         }
-        let rankedStatsPath = stats[0].seasons[CURRENT_SEASON].regions[REGION].boards.pvp_ranked;
+        let rankedStatsPath = stats[0].seasons[Object.keys(stats[0].seasons)].regions[REGION].boards.pvp_ranked;
+        // when was the last data update
+        var statsUpdateTime = Math.abs(new Date(rankedStatsPath.updateTime)-new Date())/1000/60;
+        var statsUpdateMsg = "Updated " + (statsUpdateTime).toFixed(0) + " minute(s) ago"
+        if (statsUpdateTime>59){ statsUpdateTime=statsUpdateTime/60; statsUpdateMsg = "Updated " + (statsUpdateTime).toFixed(0) + " hour(s) ago"}
+
         // create embed message with stats
         var embedStatMsg = new MessageEmbed()
-            .setColor(stats[0].seasons[CURRENT_SEASON].seasonColor)
+            .setColor(stats[0].seasons[Object.keys(stats[0].seasons)].seasonColor)
             .setTitle("Open full profile")
             .setURL('https://r6.tracker.network/profile/id/'+ p.id)
             .setAuthor(p.username, p.avatar['146'])
-            .setDescription("**" + p.username + "'s** seasonal RANKED stats on **" + stats[0].seasons[CURRENT_SEASON].seasonName + "**")
+            .setDescription("**" + p.username + "'s** seasonal RANKED stats on **" + stats[0].seasons[Object.keys(stats[0].seasons)].seasonName + "**")
             .setThumbnail(rankedStatsPath.current.icon)
             .addFields(
-                { name: '__Current Rank__', value: ' > **'+rankedStatsPath.current.name +'**\n > **MMR** '+rankedStatsPath.current.mmr + '\n > **Last match **' + (rankedStatsPath.lastMatch.mmrChange<0?"":"+") + rankedStatsPath.lastMatch.mmrChange +'\n > **Max MMR**: '+ rankedStatsPath.max.mmr, inline: true },
-                { name: '__Pew Pew__', value: ' > **KD:** ' + rankedStatsPath.kd + '\n > **KM** ' + (rankedStatsPath.kills/rankedStatsPath.matches).toFixed(2) + '\n > **Kills** ' + rankedStatsPath.kills + '\n > **Deaths** ' + rankedStatsPath.deaths, inline: true },
-                { name: '__Matches__', value: ' > **WL **' + (rankedStatsPath.wins/rankedStatsPath.losses).toFixed(1) + '\n > **Matches **' + rankedStatsPath.matches + '\n > **Win ** ' +rankedStatsPath.wins + '\n > **Loss **' + rankedStatsPath.losses + '\n > **Abandon **' + rankedStatsPath.abandons, inline: true },
+                { name: '__Current Rank__', value: '>>> **'+rankedStatsPath.current.name +'**\n**MMR** '+rankedStatsPath.current.mmr + '\n**Last match **' + (rankedStatsPath.lastMatch.mmrChange<0?"":"+") + rankedStatsPath.lastMatch.mmrChange +'\n**Max MMR**: '+ (rankedStatsPath.max.mmr).toFixed(0), inline: true },
+                { name: '__Pew Pew__', value: '>>> **KD:** ' + rankedStatsPath.kd + '\n**KM** ' + (rankedStatsPath.kills/rankedStatsPath.matches).toFixed(2) + '\n**Kills** ' + rankedStatsPath.kills + '\n**Deaths** ' + rankedStatsPath.deaths, inline: true },
+                { name: '__Matches__', value: '>>> **WL **' + (rankedStatsPath.wins/rankedStatsPath.losses).toFixed(1) + '\n**Matches **' + rankedStatsPath.matches + '\n**Win ** ' +rankedStatsPath.wins + '\n**Loss **' + rankedStatsPath.losses + '\n**Abandon **' + rankedStatsPath.abandons, inline: true },
             )
-            .setImage(stats[0].seasons[CURRENT_SEASON].seasonImage)
-            .setFooter("Oh hi :')");
+            .setImage(stats[0].seasons[Object.keys(stats[0].seasons)].seasonImage)
+            .setFooter(statsUpdateMsg);
         return embedStatMsg;
     },
 
@@ -116,28 +123,28 @@ module.exports = {
         stats = await r6api.getRanks(PLATFORM, p.id, { regionIds: REGION, boardIds: 'pvp_casual' });
         //console.log(stats[0]);
         // if the promise of an array 'stats' is empty, there're no stats for this player
-        if (stats.length==0 || stats[0].seasons[CURRENT_SEASON].regions[REGION].boards.pvp_casual.updateTime=='1970-01-01T00:00:00+00:00'){
+        if (stats.length==0 || stats[0].seasons[Object.keys(stats[0].seasons)].regions[REGION].boards.pvp_casual.updateTime=='1970-01-01T00:00:00+00:00'){
             var embedStatMsg = new MessageEmbed()
                 .setColor('RED')
                 .setDescription("**" + p.username + "** does not have any casual stats this season")
             return embedStatMsg
         }
-        let casualStatsPath = stats[0].seasons[CURRENT_SEASON].regions[REGION].boards.pvp_casual;
+        let casualStatsPath = stats[0].seasons[Object.keys(stats[0].seasons)].regions[REGION].boards.pvp_casual;
         // create embed message with stats
         var embedStatMsg = new MessageEmbed()
-            .setColor(stats[0].seasons[CURRENT_SEASON].seasonColor)
+            .setColor(stats[0].seasons[Object.keys(stats[0].seasons)].seasonColor)
             .setTitle("Open full profile")
             .setURL('https://r6.tracker.network/profile/id/'+ p.id)
             .setAuthor(p.username, p.avatar['146'])
-            .setDescription("**" + p.username + "'s** seasonal CASUAL stats on **" + stats[0].seasons[CURRENT_SEASON].seasonName + "**")
+            .setDescription("**" + p.username + "'s** seasonal CASUAL stats on **" + stats[0].seasons[Object.keys(stats[0].seasons)].seasonName + "**")
             .setThumbnail(casualStatsPath.current.icon)
             .addFields(
-                { name: 'Current Rank:', value: '> **'+casualStatsPath.current.name +'**\n > **MMR** '+casualStatsPath.current.mmr + ' | **' + (casualStatsPath.lastMatch.mmrChange<0?"":"+") + casualStatsPath.lastMatch.mmrChange +'**\n > **Max MMR**: '+ casualStatsPath.max.mmr, inline: true },
-                { name: 'Pew Pew:', value: '> **K/D:** ' + casualStatsPath.kd + '  **\n > K/M:** ' + (casualStatsPath.kills/casualStatsPath.matches).toFixed(2) + '\n > **Kills:** ' + casualStatsPath.kills + '  **Deaths:** ' + casualStatsPath.deaths, inline: true },
+                { name: 'Current Rank:', value: '>>> **'+casualStatsPath.current.name +'**\n**MMR** '+casualStatsPath.current.mmr + ' | **' + (casualStatsPath.lastMatch.mmrChange<0?"":"+") + casualStatsPath.lastMatch.mmrChange +'**\n**Max MMR**: '+ casualStatsPath.max.mmr, inline: true },
+                { name: 'Pew Pew:', value: '>>> **K/D:** ' + casualStatsPath.kd + '  **\nK/M:** ' + (casualStatsPath.kills/casualStatsPath.matches).toFixed(2) + '\n**Kills:** ' + casualStatsPath.kills + '  **Deaths:** ' + casualStatsPath.deaths, inline: true },
                 { name: '** **', value: '** ** ', inline: true },
-                { name: 'Matches:', value: '> **W/L: **' + casualStatsPath.winRate + '\n > **Matches: **' + casualStatsPath.matches + '\n > **Win: ** ' + casualStatsPath.wins + ' **Loss: **' + casualStatsPath.losses + '\n > **Abandon: **' + casualStatsPath.abandons, inline: true },
+                { name: 'Matches:', value: '>>> **Total: **' + casualStatsPath.matches + '**W/L: **' + (casualStatsPath.wins/casualStatsPath.losses).toFixed(1) + '\n**Win: ** ' + casualStatsPath.wins + ' **Loss: **' + casualStatsPath.losses + '\n**Abandon: **' + casualStatsPath.abandons, inline: true },
             )
-            .setImage(stats[0].seasons[CURRENT_SEASON].seasonImage)
+            .setImage(stats[0].seasons[Object.keys(stats[0].seasons)].seasonImage)
             .setFooter("Oh hi :')");
         return embedStatMsg;
     },
@@ -163,14 +170,8 @@ module.exports = {
             }
         }
         // Searching the most played operators => [attacker,defender]
-        let theMostPlayedAttacker = arrayOfAttackers[0]
-        let theMostPlayedDefender = arrayOfDefenders[0]
-        for (let i = 0; i <arrayOfAttackers.length; i++){
-            if (theMostPlayedAttacker.playtime < arrayOfAttackers[i].playtime) theMostPlayedAttacker = arrayOfAttackers[i]
-        }
-        for (let i = 0; i <arrayOfDefenders.length; i++){
-            if (theMostPlayedDefender.playtime < arrayOfDefenders[i].playtime) theMostPlayedDefender = arrayOfDefenders[i]
-        }
+        let theMostPlayedAttacker = arrayOfAttackers.reduce((max, attacker) => max.playtime > attacker.playtime ? max : attacker);
+        let theMostPlayedDefender = arrayOfDefenders.reduce((max, defender) => max.playtime > defender.playtime ? max : defender);
 
         return [theMostPlayedAttacker, theMostPlayedDefender]
     },
@@ -182,8 +183,8 @@ module.exports = {
      * @returns embed message with stats
      */
     getGeneralStats: async function (p){
-        generalInfo = await r6api.getProgression(PLATFORM, p.id);
-        stats = await r6api.getStats(PLATFORM, p.id);
+        let generalInfo = await r6api.getProgression(PLATFORM, p.id);
+        let stats = await r6api.getStats(PLATFORM, p.id);
 
         if (stats.length==0){
             var embedStatMsg = new MessageEmbed()
@@ -191,30 +192,37 @@ module.exports = {
                 .setDescription("No R6S stats were found for **" + p.username + "**");
             return embedStatMsg;
         }
+
+        // get stats from 'unranked' game mode
+        let unranked = await ubi.getUnrankedStats(p.id);
         let pvpStatPath = stats[0].pvp;
 
-        let ops = this.getTheMostPlayedOperators(pvpStatPath.operators)
-        /**
-         * methods with the most played ops :)
-         */
+        // find the most played operators (1 attacker and 1 defender)
+        let trendingOps = this.getTheMostPlayedOperators(pvpStatPath.operators)
+        // find the most played operator among the two
+        let mainOp = trendingOps.reduce((max, op) => max.playtime > op.playtime ? max : op);
+
+        // get the best rank
+        let theBestRank = await ubi.getTheBestRank(p.id);
 
         var embedStatMsg = new MessageEmbed()
             .setColor("#F1C40F")
             .setTitle("Open full profile")
             .setURL('https://r6.tracker.network/profile/id/'+ p.id)
             .setAuthor(p.username, (p.avatar['146']))
-            .setDescription("**" + p.username + "'s** GENERAL PVP stats")
-            .setThumbnail(p.avatar['146'])
+            .setDescription("**" + p.username + "'s** GENERAL stats")
+            .setThumbnail(mainOp.icon)
             .addFields(
-                { name: '__General__', value: ' > **Level **' + generalInfo[0].level + '\n > **Hours ** ' + (pvpStatPath.general.playtime/3600).toFixed(1) + '\n > **WL ** ' + (pvpStatPath.general.wins/pvpStatPath.general.losses).toFixed(1) +'\n > **KD ** ' + pvpStatPath.general.kd, inline: true },
-                { name: '__Matches__', value: ' > **Total **' + pvpStatPath.general.matches + '\n > **Win ** ' +pvpStatPath.general.wins + '\n > **Loss **' + pvpStatPath.general.losses + '\n > **Winrate **'+ pvpStatPath.general.winRate, inline: true },
-                { name: '__Mains__', value: '** ** ', inline: true },
-                { name: '__Casual__', value: ' > **Hours **'+(pvpStatPath.queues.casual.playtime/3600).toFixed(1) + '\n > **WL **' + (pvpStatPath.queues.casual.wins/pvpStatPath.queues.casual.losses).toFixed(1) + '\n > **KD** ' + pvpStatPath.queues.casual.kd + '\n > **KM** ' + (pvpStatPath.queues.casual.kills/pvpStatPath.queues.casual.matches).toFixed(2), inline: true },
-                { name: '__Ranked__', value: ' > **Hours **'+(pvpStatPath.queues.ranked.playtime/3600).toFixed(1) + '\n > **WL **' + (pvpStatPath.queues.ranked.wins/pvpStatPath.queues.ranked.losses).toFixed(1) + '\n > **KD** ' + pvpStatPath.queues.ranked.kd + '\n > **KM** ' + (pvpStatPath.queues.ranked.kills/pvpStatPath.queues.ranked.matches).toFixed(2), inline: true },
-                { name: '** **', value: '** ** ', inline: true },
+                { name: '__Summary__', value: '>>> **Level **' + generalInfo[0].level + '\n**Best MMR** ' + (theBestRank.mmr).toFixed(0) +'\n***' + theBestRank.rank + '***', inline: true},
+                { name: '__General__', value: ' >>> **Time played ** ' + (pvpStatPath.general.playtime/3600).toFixed(0) + 'H\n**Matches** ' + pvpStatPath.general.matches + '\n**Winrate **'+ pvpStatPath.general.winRate, inline: true },
+                { name: '_ _', value: '>>> **WL ** ' + (pvpStatPath.general.wins/pvpStatPath.general.losses).toFixed(1) +'\n**KD ** ' + pvpStatPath.general.kd + '\n**HS** ' + (100*pvpStatPath.general.headshots/pvpStatPath.general.kills).toFixed(0) + '%' , inline: true},
+                { name: '__Casual__', value: ' >>> **Played **'+(pvpStatPath.queues.casual.playtime/3600).toFixed(0) + 'H\n**WL **' + (pvpStatPath.queues.casual.wins/pvpStatPath.queues.casual.losses).toFixed(1) + '\n**KD** ' + pvpStatPath.queues.casual.kd + '\n**KM** ' + (pvpStatPath.queues.casual.kills/pvpStatPath.queues.casual.matches).toFixed(2), inline: true },
+                { name: '__Unranked__', value: ' >>> **Played **'+(unranked[0]).toFixed(0) + 'H\n**WL **' + (unranked[1]).toFixed(1) + '\n**KD** ' + (unranked[2]).toFixed(1) + '\n**KM** ' + (unranked[3]).toFixed(2), inline: true },
+                { name: '__Ranked__', value: ' >>> **Played **'+(pvpStatPath.queues.ranked.playtime/3600).toFixed(0) + 'H\n**WL **' + (pvpStatPath.queues.ranked.wins/pvpStatPath.queues.ranked.losses).toFixed(1) + '\n**KD** ' + pvpStatPath.queues.ranked.kd + '\n**KM** ' + (pvpStatPath.queues.ranked.kills/pvpStatPath.queues.ranked.matches).toFixed(2), inline: true },
+                { name: '__Main ops__', value: '```yaml\n'+ trendingOps[0].name +'\n``` **Played **' + (trendingOps[0].playtime/3600).toFixed(0) + 'H\n**KD** ' + trendingOps[0].kd + '\n**HS** ' + (100*trendingOps[0].headshots/trendingOps[0].kills).toFixed(0) + '% \n**Winrate** ' + trendingOps[0].winRate, inline: true },
+                { name: '_ _', value: '```arm\n'+ trendingOps[1].name +'\n``` **Played **' + (trendingOps[1].playtime/3600).toFixed(0) + 'H\n**KD** ' + trendingOps[1].kd + '\n**HS** ' + (100*trendingOps[1].headshots/trendingOps[1].kills).toFixed(0) + '% \n**Winrate** ' + trendingOps[1].winRate, inline: true },
                 )
-            .setImage('https://as01.epimg.net/meristation/imagenes/2021/03/19/noticias/1616165187_780184_1616165764_noticia_normal.jpg')
-            .setFooter("Oh ño! :')");
+            .setFooter('Unranked stats can sometimes be inaccurate. Waiting for updates from Ubisoft...')
         return embedStatMsg;
     }
 

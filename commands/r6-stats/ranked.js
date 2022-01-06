@@ -1,6 +1,7 @@
 const auth_1 = require('../../node_modules/r6api.js/dist/auth');
 const { MessageEmbed } = require('discord.js');
-var def = require('./stat-getters/default')
+var def = require('./stat-getters/default');
+var help = require('../support/help');
 
 /************************************************** */
 /**
@@ -15,7 +16,7 @@ async function execute(message, args) {
           
     switch(username){
         case undefined:
-            message.reply("Command usage: `!ranked [nickname]` \n > ***Example:***\n > `!ranked Shaiiko.BDS`")
+            help.execute(message)
             break;
 
         default:
