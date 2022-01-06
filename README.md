@@ -43,16 +43,14 @@ Then, you need to complete the file with default data to set up the bot:
     "YOUR_UBI_ACC_PASSWORD": "YOUR-UBI-ACC-PASSWD",
     "PLATFORM" : "DEFAULT-PLATFORM",
     "REGION": "DEFAULT-REGION",
-    "CURRENT_SEASON": "SEASON-NUMBER",
-    "SEASON_RELEASE": "YEARMONTHDAY"
+    "TOTAL_NUMBER_OF_SEASONS": 24
 }
 ```
 
 ### Default data values
 - PLATFORM: "uplay", "psn" or "xbl"
 - REGION: "emea", "ncsa" or "apac"
-- CURRENT_SEASON: Values between 1-24 (latest season)
-- SEASON_RELEASE: For example _"20211130"_ : 30th Nov 2021
+- TOTAL_NUMBER_OF_SEASONS: has to be an integer. At this moment, the total is 24 seasons.
 
 _Note : As default REGION, you can just write ***emea***, because Ubisoft made ranks global._
 
