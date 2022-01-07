@@ -11,7 +11,7 @@ module.exports = {
         if(!msg.member.permissions.has("ADMINISTRATOR")) {
             embedMsg
                 .setColor("RED")
-                .setDescription(":no_entry_sign: Ты недостойный.")
+                .setDescription(":no_entry_sign: You don't have permission to add a custom command.")
             msg.reply({embeds:[embedMsg]})
             return
         }
