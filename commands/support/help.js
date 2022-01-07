@@ -1,5 +1,7 @@
 const fs = require('fs');
 const { MessageEmbed } = require('discord.js');
+const db = require('quick.db');
+const prefix = require('../../data/prefix.json')
 
 function helpCommand () {
     let helpMsg = [];
@@ -17,7 +19,7 @@ function helpCommand () {
         for (let file of commandFiles) {
             /* Set command file */
             let requestedCommand = require(`../../commands/${dir}/${file}`);
-            tmp.push([requestedCommand.description + ': ```$' + requestedCommand.name]);
+            tmp.push([requestedCommand.description + ': ```' + prefix + requestedCommand.name]);
         };
         helpMsg.push(tmp)
     };
@@ -43,6 +45,17 @@ module.exports = {
                             arrayOfCommands[0][1] + ' [nickname]```\n'
                             ),
                             inline:true},
+                            {
+                                name: '** **',
+                                value: '** **',
+                                inline:true
+                            },
+                            {
+                                name: 'Examples',
+                                value: (
+                                '```' + prefix + 'r6 chocoiatine\n' + prefix + 'general polloman\n' + prefix + 'casual kmeme5```'),
+                                inline:true
+                            }
 
                         )
     
@@ -55,10 +68,10 @@ module.exports = {
         }
         // add those commands to the embedMsg
         embedMsg
-        .addFields({
-                        name: '** **',
-                        value: '** **',
-                        inline:true
+        .addFields(
+                    {
+                        name: '\u200B',
+                        value: '\u200B'
                     },
                     {
                         name: '__MORE__',
@@ -66,11 +79,28 @@ module.exports = {
                         inline:true
                     },
                     {
-                        name: 'Examples',
-                        value: (
-                        '`$r6 ThinkinNade.SSG`\n `$general Shaiiko.BDS`\n `$casual SHA77ELELE`'),
-                        inline:false
-                    })
+                        name: '** **',
+                        value: '** **',
+                        inline:true
+                    },
+                   )
+        
+        // add the custom commands to the embed
+        let customDB = db.get(`cmd_${msg.guild.id}`)
+        // dont show the field if there's no custom commands
+        if (customDB && customDB.length!=0){
+            let cmdArray=[];
+            customDB.forEach(element => {
+                cmdArray.push(element.name)                
+            });
+            embedMsg.addFields(
+                {
+                    name: '__CUSTOM COMMANDS__',
+                    value: "```" + prefix + cmdArray.join("\n" + prefix) + "```",
+                    inline:true
+                }
+            )
+        }
         
         msg.reply({embeds: [embedMsg]})
 
