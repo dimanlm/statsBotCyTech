@@ -1,2 +1,5 @@
 node_modules
 Procfile
+data/config.json
+data/default.json
+json.sqlite

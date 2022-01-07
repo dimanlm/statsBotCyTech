@@ -1,10 +1,12 @@
 const fs = require('fs');
 const { TOKEN } = require("./data/config.json");
 const { Client, Intents, Collection } = require('discord.js');
+const prefix = require("./data/prefix.json")
+const db = require('quick.db')
 
 const botClient = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
-const prefix = '$'
- /************************************** */
+
+/************************************** */
 
 
 
@@ -41,6 +43,14 @@ botClient.on('messageCreate', function(msg) {
     const args = msg.content.slice(prefix.length).split(' ');
     const command = args.shift();
 
+    // check if the command is in the database (so it is a custom command)
+    let customCommands = db.get(`cmd_${msg.guild.id}`)
+    if(customCommands) {
+        let cmdy = customCommands.find(x => x.name === command)
+        if(cmdy) msg.reply(cmdy.response)
+    }
+
+    // check if the command is in  /commands
     if (!botClient.commandsCollection.has(command)) return;
 
     try {
