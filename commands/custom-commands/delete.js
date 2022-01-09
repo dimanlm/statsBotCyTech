@@ -1,11 +1,11 @@
-const db = require('quick.db');
+const customCmdModel = require('../../models/customCmdSchema');
 const { MessageEmbed } = require('discord.js');
 const prefix = require('../../data/prefix.json');
 
 module.exports = {
     name: 'del',
     description: 'Delete a custom command',
-    execute(msg, args) {
+    async execute (msg, args) {
         var embedMsg = new MessageEmbed();
 
         if(!msg.member.permissions.has("ADMINISTRATOR")) {
@@ -26,39 +26,24 @@ module.exports = {
             return
         }
 
-        let cmdDataBase = db.get(`cmd_${msg.guild.id}`)
+        let cmdDataBase = await customCmdModel.findOne({ guildId: msg.guild.id, cmdName: deleteCommand.toLowerCase() });
 
+        // check if the command that the user wants to delete is in the database
         if (!cmdDataBase){
             embedMsg
-                .setColor("RED")
-                .setDescription(":x: There was a problem loading the database.")
-            msg.reply({embeds:[embedMsg]})
-            return
-        }
-        // check if the command that the user wants to delete is in the database
-        let command = cmdDataBase.find(x => x.name === deleteCommand.toLowerCase())
-        if (!command){
-            embedMsg
             .setColor("RED")
-            .setDescription(":x: Could not find this command")
+            .setDescription(":x: This command does not exist.")
             msg.reply({embeds:[embedMsg]})
             return
         }
         
-        // delete the command
-        let index = cmdDataBase.indexOf(command);
-        delete cmdDataBase[index];
+        // search for the command and delete it
+        await customCmdModel.findOneAndDelete({ guildId: msg.guild.id, cmdName: deleteCommand.toLowerCase() });
 
-        // remove all null values and update the database
-        var filteredData = cmdDataBase.filter(x => {
-            return x != null && x != ''
-        })
-        db.set(`cmd_${msg.guild.id}`, filteredData)
-        
         embedMsg
             .setColor("GREEN")
             .setDescription(":white_check_mark: **"+prefix + deleteCommand.toLowerCase() + "** has been deleted!")
-        msg.reply({embeds:[embedMsg]})
+        msg.channel.send({embeds:[embedMsg]})
 
         return
 

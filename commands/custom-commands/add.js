@@ -1,11 +1,11 @@
-const db = require('quick.db');
+const customCmdModel = require('../../models/customCmdSchema')
 const { MessageEmbed } = require('discord.js');
 const prefix = require('../../data/prefix.json');
 
 module.exports = {
     name: 'add',
     description: 'Add a custom command',
-    execute(msg, args) {
+    async execute (msg, args) {
         var embedMsg = new MessageEmbed();
 
         if(!msg.member.permissions.has("ADMINISTRATOR")) {
@@ -28,9 +28,9 @@ module.exports = {
             return
         }
 
-        let cmdDataBase = db.get(`cmd_${msg.guild.id}`)
+        let cmdDataBase = await customCmdModel.findOne({ guildId: msg.guild.id, cmdName: command.toLowerCase() })
         // check if command name already exists
-        if (cmdDataBase && cmdDataBase.find(x => x.name === command.toLowerCase())){
+        if (cmdDataBase){
             embedMsg
                 .setColor("RED")
                 .setDescription(":exclamation: **" + command.toLowerCase() + "** already exists")
@@ -38,16 +38,17 @@ module.exports = {
             return
         }
 
-        let data = {
-            name: command.toLowerCase(),
+        let newCustomCommand = new customCmdModel({
+            guildId: msg.guild.id,
+            cmdName: command.toLowerCase(),
             response: response
-        }
-        db.push(`cmd_${msg.guild.id}`, data)
+        });
+        await newCustomCommand.save();
 
         embedMsg
                 .setColor("GREEN")
-                .setDescription(":white_check_mark: **"+prefix + command.toLowerCase() + "** added successfully!")
-        msg.reply({embeds:[embedMsg]})
+                .setDescription(":white_check_mark: **"+prefix + command.toLowerCase() + "** has been added successfully!")
+        msg.channel.send({embeds:[embedMsg]})
         
         return
 

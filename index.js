@@ -52,11 +52,8 @@ botClient.on('messageCreate', function(msg) {
     const command = args.shift();
 
     // check if the command is in the database (so it is a custom command)
-    let customCommands = db.get(`cmd_${msg.guild.id}`)
-    if(customCommands) {
-        let cmdy = customCommands.find(x => x.name === command)
-        if(cmdy) msg.reply(cmdy.response)
-    }
+    let customCommands = await customCmdModel.findOne({ guildId: msg.guild.id, cmdName: command.toLowerCase() });
+    if (customCommands) return msg.reply(customCommands.response)
 
     // check if the command is in  /commands
     if (!botClient.commandsCollection.has(command)) return;

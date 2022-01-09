@@ -1,7 +1,7 @@
+const customCmdModel = require('../../models/customCmdSchema');
 const fs = require('fs');
 const { MessageEmbed } = require('discord.js');
-const db = require('quick.db');
-const prefix = require('../../data/prefix.json')
+const prefix = require('../../data/prefix.json');
 
 function helpCommand () {
     let helpMsg = [];
@@ -30,7 +30,7 @@ function helpCommand () {
 module.exports = {
     name: 'help',
     description: 'Shows all the available commands.',
-    execute(msg) {
+    async execute(msg) {
         let arrayOfCommands = helpCommand();
         let commands = '';
         
@@ -86,12 +86,13 @@ module.exports = {
                    )
         
         // add the custom commands to the embed
-        let customDB = db.get(`cmd_${msg.guild.id}`)
+        let customDB = await customCmdModel.find({ guildId: msg.guild.id })
+        console.log(customDB)
         // dont show the field if there's no custom commands
         if (customDB && customDB.length!=0){
             let cmdArray=[];
             customDB.forEach(element => {
-                cmdArray.push(element.name)                
+                cmdArray.push(element.cmdName)                
             });
             embedMsg.addFields(
                 {
