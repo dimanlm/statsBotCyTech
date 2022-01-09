@@ -30,7 +30,9 @@ Firstly, you need to put your private Discord bot token in:
 
 ```
 {
-    "TOKEN": "YOUR-BOT-TOKEN"
+    "TOKEN": "YOUR-BOT-TOKEN",
+    "URI": "mongodb+srv:YOUR-MONGODB-SRV"
+
 }
 ```
 Then, you need to complete the file with default data to set up the bot:
