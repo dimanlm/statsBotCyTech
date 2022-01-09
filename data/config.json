@@ -1,3 +1,4 @@
 {
-    "TOKEN": "YOUR-BOT-TOKEN"
+    "TOKEN": "YOUR-BOT-TOKEN",
+    "URI": "mongodb+srv:YOUR-MONGODB-SRV"
 }

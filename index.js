@@ -1,7 +1,8 @@
 const fs = require('fs');
-const { TOKEN } = require("./data/config.json");
+const { TOKEN, URI } = require("./data/config.json");
 const { Client, Intents, Collection } = require('discord.js');
-const prefix = require("./data/prefix.json")
+const prefix = require("./data/prefix.json");
+const mongoose = require('mongoose');
 const db = require('quick.db')
 
 const botClient = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
@@ -30,9 +31,16 @@ for (let dir of cmdDirs) {
 
  /************************************** */
 
-botClient.on('ready', () => {
+botClient.on('ready', async () => {
     console.log(`Logged in!`);
     botClient.user.setActivity('Casual | $help', { type: 'PLAYING' }); // set a Status 
+
+    // connect to our database
+    await mongoose.connect(URI, {
+        keepAlive: true
+    }).then(()=>{
+        console.log('Connected to the DB')
+    }).catch(err => console.log(err));
 });
 
 
