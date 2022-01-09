@@ -26,7 +26,7 @@ nodemon index.js
 
 # Usage
 Firstly, you need to put your private Discord bot token in: 
-- **nlmbot-public/data/config.json**
+- **nlmbot-public/data/config.json**. Also you need to provide your MongoDB URI to be able to use, add, modify, and delete your custom commands.
 
 ```
 {
