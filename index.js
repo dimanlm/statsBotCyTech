@@ -3,7 +3,7 @@ const { TOKEN, URI } = require("./data/config.json");
 const { Client, Intents, Collection } = require('discord.js');
 const prefix = require("./data/prefix.json");
 const mongoose = require('mongoose');
-const db = require('quick.db')
+const customCmdModel = require('./models/customCmdSchema');
 
 const botClient = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
@@ -44,7 +44,7 @@ botClient.on('ready', async () => {
 });
 
 
-botClient.on('messageCreate', function(msg) {
+botClient.on('messageCreate', async function(msg) {
 
     if (msg.author.bot || !msg.content.startsWith(prefix)) return;
   
