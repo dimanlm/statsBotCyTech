@@ -1,5 +1,5 @@
 
-# NLM Bot
+# Stats Bot
 
 Some commits and branches will be missing because the main development repository is private.
 

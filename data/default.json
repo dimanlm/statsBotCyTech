@@ -1,7 +1,7 @@
 {
-    "YOUR_UBI_ACC_MAIL": "YOUR-UBI-ACC-EMAIL",
-    "YOUR_UBI_ACC_PASSWORD": "YOUR-UBI-ACC-PASSWD",
-    "PLATFORM" : "DEFAULT-PLATFORM",
-    "REGION": "DEFAULT-REGION",
+    "UBI_MAIL": "ubitrackerbot@mail.ru",
+    "UBI_PASSWORD": "@Ubi@Tracker@B0t",
+    "PLATFORM" : "uplay",
+    "REGION": "emea",
     "TOTAL_NUMBER_OF_SEASONS": 24
 }

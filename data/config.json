@@ -1,4 +1,4 @@
 {
-    "TOKEN": "YOUR-BOT-TOKEN",
-    "URI": "mongodb+srv:YOUR-MONGODB-SRV"
+    "TOKEN": "OTI1MTg3NjgzMDc1MTE3MDY2.YcpeLA.SYJrA0EXVCi0EmleDZ-ELgQwx0I",
+    "URI": "mongodb+srv://admin:nlmbot@nlmbot.uaxwf.mongodb.net/nlmDB?retryWrites=true&w=majority"
 }
