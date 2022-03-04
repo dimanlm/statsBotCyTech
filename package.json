@@ -2,7 +2,7 @@
   "name": "nlmbot",
   "version": "1.0.0",
   "engines": {
-    "node": "16.13.0"
+    "node": ">=16.13.0"
   },
   "description": "nlm Discord bot",
   "main": "index.js",
@@ -21,6 +21,8 @@
     "discord.js": "^13.4.0",
     "dotenv": "^10.0.0",
     "mongoose": "^6.1.5",
-    "r6api.js": "^4.0.0"
+    "nodemon": "^2.0.15",
+    "r6api.js": "^4.0.0",
+    "twisted": "^1.46.5"
   }
 }

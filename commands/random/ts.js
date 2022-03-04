@@ -15,6 +15,5 @@ module.exports ={
 
         msg.reply({ content: '**TeamSpeak server link:** ```TEAMSPEAK-IP```', components: [row] });
 
-
     }
 }
