@@ -1,16 +1,19 @@
-const LolApi = require("twisted");
-const Constants = require("twisted");
+const { MessageEmbed } = require('discord.js');
+
+// Init
+const Lol = require('node-riotapi/dist/api/lol').default;
 const { RIOT_API_KEY } = require("../../data/config.json");
+var lol = new Lol({ apiKey: RIOT_API_KEY, region: 'kr' });
 
-const api = new LolApi()
-
+// Get LOL stats
 async function execute() {
-    console.log(await api.Summoner.getByName('Hide on bush', Constants.Regions.KOREA));
-    return await api.Summoner.getByName('Hide on bush', Constants.Regions.KOREA);
+    const summonerInfo = await lol.getSummonerByName('대덕sw마이스터고');
+    console.log(summonerInfo);
 }
 
+// export
 module.exports = {
-    name: 'summoner',
-    description: "**OVERALL** LOL stats",
+    name: 'sum',
+    description: "**Summoner** LOL",
     execute
 }
