@@ -1,15 +1,18 @@
 const fs = require('fs');
-const { TOKEN, URI } = require("./data/config.json");
 const { Client, Intents, Collection } = require('discord.js');
-const prefix = require("./data/prefix.json");
 const mongoose = require('mongoose');
-const customCmdModel = require('./models/customCmdSchema');
+const raygun = require('raygun');
 
-const botClient = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+const { TOKEN, URI } = require("./data/config.json");
+const prefix = require("./data/prefix.json");
+const customCmdModel = require('./models/customCmdSchema');
 
 /************************************** */
 
 
+/************************************** */
+
+const botClient = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
 botClient.commandsCollection = new Collection();
 

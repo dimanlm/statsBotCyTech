@@ -4,7 +4,7 @@
   "engines": {
     "node": ">=16.13.0"
   },
-  "description": "nlm Discord bot",
+  "description": "Stats Discord bot - CY TECH project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,7 +23,8 @@
     "mongoose": "^6.1.5",
     "node-riotapi": "^0.3.0",
     "nodemon": "^2.0.15",
-    "r6api.js": "^4.0.0",
+    "r6api.js": "^4.0.1",
+    "raygun": "^0.13.1",
     "twisted": "^1.46.5"
   }
 }

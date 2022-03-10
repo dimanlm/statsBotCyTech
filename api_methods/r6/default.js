@@ -7,7 +7,7 @@ require('dotenv').config();
 const { MessageEmbed } = require('discord.js');
 
 const R6API = require('r6api.js').default;
-const { YOUR_UBI_ACC_MAIL, YOUR_UBI_ACC_PASSWORD, PLATFORM, REGION } = require("../../../data/default.json");
+const { YOUR_UBI_ACC_MAIL, YOUR_UBI_ACC_PASSWORD, PLATFORM, REGION } = require("../../data/default.json");
 
 // const { UBI_EMAIL: email = YOUR_UBI_ACC_MAIL, UBI_PASSWORD: password = YOUR_UBI_ACC_PASSWORD } = process.env;
 // const r6api = new R6API({ email, password });

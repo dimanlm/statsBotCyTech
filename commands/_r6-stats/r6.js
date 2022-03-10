@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-var def = require('./stat-getters/default')
+var def = require('../../api_methods/r6/default')
 
 var help = require('../support/help')
 

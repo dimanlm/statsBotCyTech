@@ -1,10 +1,10 @@
 // Here we send custom requests to Ubisoft's public API
-const auth_1 = require('../../../node_modules/r6api.js/dist/auth');
-const utils_1 = require("../../../node_modules/r6api.js/dist/utils.js");
-const constants = require('../../../node_modules/r6api.js/dist/constants');
+const auth_1 = require('../../node_modules/r6api.js/dist/auth');
+const utils_1 = require("../../node_modules/r6api.js/dist/utils.js");
+const constants = require('../../node_modules/r6api.js/dist/constants');
 var axios = require('axios');
 
-const { PLATFORM, TOTAL_NUMBER_OF_SEASONS } = require("../../../data/default.json");
+const { PLATFORM, TOTAL_NUMBER_OF_SEASONS } = require("../../data/default.json");
 
 let date_ob = new Date();
 
