@@ -10,11 +10,11 @@ const customCmdModel = require('./models/customCmdSchema');
 
 /************************************** */
 
-// const raygunClient = new raygun.Client().init({
-//     apiKey: '9QdF54x4XqVOZgHUdV8aA',
-//     reportUncaughtExceptions: true,
-//     batch: true
-// });
+const raygunClient = new raygun.Client().init({
+    apiKey: process.env.RAYGUN_TOKEN,
+    reportUncaughtExceptions: true,
+    batch: true
+});
 
 /************************************** */
 
