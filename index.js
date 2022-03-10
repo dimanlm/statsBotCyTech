@@ -1,14 +1,20 @@
 const fs = require('fs');
+require('dotenv').config();
+
 const { Client, Intents, Collection } = require('discord.js');
 const mongoose = require('mongoose');
 const raygun = require('raygun');
 
-const { TOKEN, URI } = require("./data/config.json");
 const prefix = require("./data/prefix.json");
 const customCmdModel = require('./models/customCmdSchema');
 
 /************************************** */
 
+// const raygunClient = new raygun.Client().init({
+//     apiKey: '9QdF54x4XqVOZgHUdV8aA',
+//     reportUncaughtExceptions: true,
+//     batch: true
+// });
 
 /************************************** */
 
@@ -37,9 +43,8 @@ for (let dir of cmdDirs) {
 botClient.on('ready', async () => {
     console.log(`Logged in!`);
     botClient.user.setActivity('Casual | $help', { type: 'PLAYING' }); // set a Status 
-
     // connect to our database
-    await mongoose.connect(URI, {
+    await mongoose.connect(process.env.URI, {
         keepAlive: true
     }).then(()=>{
         console.log('Connected to the DB')
@@ -69,4 +74,4 @@ botClient.on('messageCreate', async function(msg) {
     }
 });
 
-botClient.login(TOKEN);
+botClient.login(process.env.TOKEN);

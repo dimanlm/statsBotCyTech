@@ -1,9 +1,9 @@
+require('dotenv').config();
 const { MessageEmbed } = require('discord.js');
 
 // Init
 const Lol = require('node-riotapi/dist/api/lol').default;
-const { RIOT_API_KEY } = require("../../data/config.json");
-var lol = new Lol({ apiKey: RIOT_API_KEY, region: 'kr' });
+var lol = new Lol({ apiKey: process.env.RIOT_API_KEY, region: 'kr' });
 
 // Get LOL stats
 async function execute() {

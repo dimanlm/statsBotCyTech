@@ -7,19 +7,15 @@ require('dotenv').config();
 const { MessageEmbed } = require('discord.js');
 
 const R6API = require('r6api.js').default;
-const { YOUR_UBI_ACC_MAIL, YOUR_UBI_ACC_PASSWORD, PLATFORM, REGION } = require("../../data/default.json");
-
-// const { UBI_EMAIL: email = YOUR_UBI_ACC_MAIL, UBI_PASSWORD: password = YOUR_UBI_ACC_PASSWORD } = process.env;
-// const r6api = new R6API({ email, password });
-
-/** If it doesnt log in, you can try this:  **/
-const { UBI_EMAIL: email = 'ubitrackerbot@mail.ru', UBI_PASSWORD: password = '@Ubi@Tracker@B0t' } = process.env;
+const { UBI_MAIL: email, UBI_PASSWORD: password } = process.env;
 const r6api = new R6API({ email, password });
+
+const { PLATFORM, REGION } = require("../../data/default.json");
 
 /**
  * Export functions
  */
- module.exports = {
+module.exports = {
 
     /**
      * Function that allows us to find and verify if a uplay profile exists
