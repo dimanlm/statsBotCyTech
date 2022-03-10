@@ -5,7 +5,7 @@ const { Client, Intents, Collection } = require('discord.js');
 const mongoose = require('mongoose');
 const raygun = require('raygun');
 
-const prefix = require("./data/prefix.json");
+const prefix = require("./config/prefix.json");
 const customCmdModel = require('./models/customCmdSchema');
 
 /************************************** */

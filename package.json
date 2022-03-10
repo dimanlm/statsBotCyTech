@@ -7,14 +7,20 @@
   "description": "Stats Discord bot - CY TECH project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://git.heroku.com/nlmbot.git"
+    "url": "https://github.com/dimanlm/statsBotCyTech"
   },
-  "author": "sangriia",
+  "author": "dimanlm",
   "license": "ISC",
+  "devDependencies": {
+    "mocha": "^8.3.2",
+    "nodemon": "^2.0.7"
+  },
   "dependencies": {
     "@discordjs/builders": "^0.10.0",
     "axios": "^0.24.0",
@@ -22,9 +28,7 @@
     "dotenv": "^10.0.0",
     "mongoose": "^6.1.5",
     "node-riotapi": "^0.3.0",
-    "nodemon": "^2.0.15",
     "r6api.js": "^4.0.1",
-    "raygun": "^0.13.1",
-    "twisted": "^1.46.5"
+    "raygun": "^0.13.1"
   }
 }

@@ -10,13 +10,13 @@ const R6API = require('r6api.js').default;
 const { UBI_MAIL: email, UBI_PASSWORD: password } = process.env;
 const r6api = new R6API({ email, password });
 
-const { PLATFORM, REGION } = require("../../data/default.json");
+const { PLATFORM, REGION } = require("../../config/default.json");
 
 /**
  * Export functions
  */
 module.exports = {
-
+    
     /**
      * Function that allows us to find and verify if a uplay profile exists
      * @param {username} u 

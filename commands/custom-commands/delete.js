@@ -1,6 +1,6 @@
 const customCmdModel = require('../../models/customCmdSchema');
 const { MessageEmbed } = require('discord.js');
-const prefix = require('../../data/prefix.json');
+const prefix = require('../../config/prefix.json');
 
 module.exports = {
     name: 'del',

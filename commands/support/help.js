@@ -1,7 +1,7 @@
 const customCmdModel = require('../../models/customCmdSchema');
 const fs = require('fs');
 const { MessageEmbed } = require('discord.js');
-const prefix = require('../../data/prefix.json');
+const prefix = require('../../config/prefix.json');
 
 function helpCommand () {
     let helpMsg = [];
