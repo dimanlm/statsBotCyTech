@@ -1,5 +1,8 @@
 
 # Stats Bot
+[![build](https://github.com/dimanlm/statsBotCyTech/actions/workflows/node.js.yml/badge.svg)](https://github.com/dimanlm/statsBotCyTech/actions/workflows/node.js.yml)
+![Heroku](https://heroku-badge.herokuapp.com/?app=statsbotcytech)
+
 
 Some commits and branches will be missing because the main development repository is private.
 
