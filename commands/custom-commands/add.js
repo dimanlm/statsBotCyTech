@@ -2,17 +2,22 @@ const customCmdModel = require('../../models/customCmdSchema')
 const { MessageEmbed } = require('discord.js');
 const prefix = require('../../config/prefix.json');
 
+function checkAdmin(msg){
+    return (msg.member.permissions.has("ADMINISTRATOR"));
+}
+
 module.exports = {
     name: 'add',
     description: 'Add a custom command',
     async execute (msg, args) {
         var embedMsg = new MessageEmbed();
 
-        if(!msg.member.permissions.has("ADMINISTRATOR")) {
+        if(!checkAdmin(msg)) {
             embedMsg
                 .setColor("RED")
                 .setDescription(":no_entry_sign: You don't have permission to add a custom command.")
-            msg.reply({embeds:[embedMsg]})
+            msg.reply(":no_entry_sign: You don't have permission to add a custom command.");
+            // msg.reply({embeds:[embedMsg]})
             return
         }
         
@@ -34,7 +39,8 @@ module.exports = {
             embedMsg
                 .setColor("RED")
                 .setDescription(":exclamation: **" + command.toLowerCase() + "** already exists")
-            msg.reply({embeds:[embedMsg]})
+            //msg.reply({embeds:[embedMsg]})
+            msg.reply(":exclamation: **" + command.toLowerCase() + "** already exists")
             return
         }
 
