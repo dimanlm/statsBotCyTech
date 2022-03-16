@@ -40,7 +40,6 @@ describe("Custom commands - admin", function () {
         var command = 'hi'
         var response = 'bye'
         adminMessage.content = "$add" + command + response;
-        adminMessage.member.permissions.has()
         await execute.execute(adminMessage, [command, response]);
         expect(adminMessage.reply).toHaveBeenCalledWith(":exclamation: **" + command.toLowerCase() + "** already exists");
     });
