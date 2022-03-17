@@ -16,8 +16,7 @@ module.exports = {
             embedMsg
                 .setColor("RED")
                 .setDescription(":no_entry_sign: You don't have permission to add a custom command.")
-            msg.reply(":no_entry_sign: You don't have permission to add a custom command.");
-            // msg.reply({embeds:[embedMsg]})
+            msg.reply({embeds:[embedMsg]})
             return
         }
         
@@ -39,8 +38,7 @@ module.exports = {
             embedMsg
                 .setColor("RED")
                 .setDescription(":exclamation: **" + command.toLowerCase() + "** already exists")
-            //msg.reply({embeds:[embedMsg]})
-            msg.reply(":exclamation: **" + command.toLowerCase() + "** already exists")
+            msg.reply({embeds:[embedMsg]})
             return
         }
 
@@ -57,6 +55,5 @@ module.exports = {
         msg.channel.send({embeds:[embedMsg]})
         
         return
-
     },
 };
