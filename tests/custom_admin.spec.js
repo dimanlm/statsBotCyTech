@@ -35,7 +35,7 @@ describe("Custom commands - admin", function () {
         jest.clearAllMocks();
     });
 
-    it("should refuse to add a  -> $hi already exists", async () => {
+    it("should refuse to add a -> $hi already exists", async () => {
         adminMessage.reply = jest.fn();
         var command = 'hi'
         var response = 'bye'
