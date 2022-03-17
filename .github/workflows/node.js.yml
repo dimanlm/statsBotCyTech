@@ -1,7 +1,15 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: StatsBotPFE CI
+name: build
+
+env:
+  TOKEN: ${{ secrets.TOKEN }}
+  URI: ${{ secrets.URI }}
+  RAYGUN_TOKEN: ${{ secrets.RAYGUN_TOKEN }}
+  RIOT_API_KEY: ${{ secrets.RIOT_API_KEY }}
+  UBI_MAIL: ${{ secrets.UBI_MAIL }}
+  UBI_PASSWORD: ${{ secrets.UBI_PASSWORD }}
 
 on:
   push:
