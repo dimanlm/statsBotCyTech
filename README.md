@@ -2,6 +2,8 @@
 # Stats Bot
 [![build](https://github.com/dimanlm/statsBotCyTech/actions/workflows/node.js.yml/badge.svg)](https://github.com/dimanlm/statsBotCyTech/actions/workflows/node.js.yml)
 
+[<img alt="alt_text" width="150px" src="https://tabstats.com/images/tab/discordbot.png" />](https://discord.com/api/oauth2/authorize?client_id=925187683075117066&permissions=8&scope=bot)
+
 Project built on DiscordJS v13 with Node.js 16.
 The bot retrieves and displays Rainbow Six Siege stats in your server, thanks to [**r6api.js**](https://www.npmjs.com/package/r6api.js) package and Ubisoft's public API. You can only track players who play on PC.
 
