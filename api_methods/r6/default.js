@@ -11,6 +11,7 @@ const { UBI_MAIL: email, UBI_PASSWORD: password } = process.env;
 const r6api = new R6API({ email, password });
 
 const { PLATFORM, REGION } = require("../../config/default.json");
+const ubi = require("./ubiapi.js");
 
 var embedStatMsg = new MessageEmbed()
 
@@ -158,7 +159,7 @@ module.exports = {
         var arrayOfAttackers = [];
         var arrayOfDefenders = [];
         // Splitting the array into two individual arrays: Attackers and Defenders
-        for (let i of k){
+        for (let i=0; i<k.length; i++){
             if (ops[k[i]].role=='attacker') {
                 arrayOfAttackers.push(ops[k[i]]);
             }
@@ -166,6 +167,7 @@ module.exports = {
                 arrayOfDefenders.push(ops[k[i]]);
             }
         }
+        
         // Searching the most played operators => [attacker,defender]
         let theMostPlayedAttacker = arrayOfAttackers.reduce((max, attacker) => max.playtime > attacker.playtime ? max : attacker);
         let theMostPlayedDefender = arrayOfDefenders.reduce((max, defender) => max.playtime > defender.playtime ? max : defender);
