@@ -10,6 +10,7 @@ env:
   RIOT_API_KEY: ${{ secrets.RIOT_API_KEY }}
   UBI_MAIL: ${{ secrets.UBI_MAIL }}
   UBI_PASSWORD: ${{ secrets.UBI_PASSWORD }}
+  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
 on:
   push:
@@ -19,14 +20,11 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [16.x, 17.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+        
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
@@ -34,5 +32,12 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm i
-    - run: npm test
+        
+    - name: Install Node dependencies
+      run: npm i
+    
+    - name: Run unit and integration tests
+      run: npm test
+    
+    - name: SonarCloud scan
+      uses: sonarsource/sonarcloud-github-action@master
