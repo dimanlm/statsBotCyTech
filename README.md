@@ -1,6 +1,8 @@
 
 # Stats Bot
 [![build](https://github.com/dimanlm/statsBotCyTech/actions/workflows/node.js.yml/badge.svg)](https://github.com/dimanlm/statsBotCyTech/actions/workflows/node.js.yml)
+![GitHub issues](https://img.shields.io/github/issues/dimanlm/statsBotCyTech)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=dimanlm_statsBotCyTech&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=dimanlm_statsBotCyTech)
 
 [<img alt="alt_text" width="150px" src="https://tabstats.com/images/tab/discordbot.png" />](https://discord.com/api/oauth2/authorize?client_id=925187683075117066&permissions=8&scope=bot)
 
