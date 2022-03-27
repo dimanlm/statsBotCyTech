@@ -158,7 +158,7 @@ module.exports = {
         var arrayOfAttackers = [];
         var arrayOfDefenders = [];
         // Splitting the array into two individual arrays: Attackers and Defenders
-        for (let i=0;i<k.length;i++){
+        for (let i of k.length){
             if (ops[k[i]].role=='attacker') {
                 arrayOfAttackers.push(ops[k[i]]);
             }

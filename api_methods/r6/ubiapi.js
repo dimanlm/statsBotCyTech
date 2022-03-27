@@ -94,7 +94,7 @@ module.exports = {
         }
 
         // get kills per match
-        kpm = kd[0]/(wl[0]+wl[1])
+        let kpm = kd[0]/(wl[0]+wl[1])
 
         // played hours, winloss ratio, kd ratio, kills per match
         unrankedStat.push((unrankedPlaytime/60), (wl[0]/wl[1]), (kd[0]/kd[1]), kpm)
@@ -109,7 +109,7 @@ module.exports = {
      */
      getTheBestRank: async function(p){
         // Variable to get the ranks of all season ids
-        allSeasonRequest = "";
+        let allSeasonRequest = "";
         for (let i=-1; Math.abs(i) <= TOTAL_NUMBER_OF_SEASONS; i--){
             if (Math.abs(i)!=TOTAL_NUMBER_OF_SEASONS) allSeasonRequest += i + ',';
             else allSeasonRequest += i;
@@ -135,7 +135,7 @@ module.exports = {
                     
         var allMaxMMR = [];
         var rankName = '';
-        for (i=5; i < res.seasons_player_skill_records.length; i++){
+        for (let i=5; i < res.seasons_player_skill_records.length; i++){
             rankName = utils_1.getRankNameFromRankId(res.seasons_player_skill_records[i].regions_player_skill_records[0].boards_player_skill_records[0].players_skill_records[0].max_rank, i+1); 
             allMaxMMR.push({ "rank": rankName, "mmr":res.seasons_player_skill_records[i].regions_player_skill_records[0].boards_player_skill_records[0].players_skill_records[0].max_mmr });
         }
