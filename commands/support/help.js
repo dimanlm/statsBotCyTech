@@ -20,9 +20,9 @@ function helpCommand () {
             /* Set command file */
             let requestedCommand = require(`../../commands/${dir}/${file}`);
             tmp.push([requestedCommand.description + ': ```' + prefix + requestedCommand.name]);
-        };
+        }
         helpMsg.push(tmp)
-    };
+    }
 
     return helpMsg;
 }
@@ -62,7 +62,7 @@ module.exports = {
         // getting the rest of the commands
         for (var i = 1; i < arrayOfCommands.length; i++) {
             var commandCategory = arrayOfCommands[i]
-            for (var j =0; j < commandCategory.length; j++) {
+            for (var j of Object.keys(commandCategory)) {
                 commands+= commandCategory[j] + '```\n'   
             }
         }

@@ -75,20 +75,20 @@ module.exports = {
 
         // get the play hours
         let unrankedPlaytime = 0
-        for (let i=0; i < unranked.all.length; i++){
+        for (let i of Object.keys(unranked.all)){
             unrankedPlaytime+=unranked.all[i].minutesPlayed
         }
 
         // get the wins/losses
         let wl = [0,0]
-        for (let i=0; i < unranked.all.length; i++){
+        for (let i of Object.keys(unranked.all)){
             wl[0]+=unranked.all[i].matchesWon;
             wl[1]+=unranked.all[i].matchesLost;
         }
 
         // get the kills/deaths
         let kd = [0,0]
-        for (let i=0; i < unranked.all.length; i++){
+        for (let i of Object.keys(unranked.all)){
             kd[0]+=unranked.all[i].kills;
             kd[1]+=unranked.all[i].death;
         }
@@ -140,9 +140,7 @@ module.exports = {
             allMaxMMR.push({ "rank": rankName, "mmr":res.seasons_player_skill_records[i].regions_player_skill_records[0].boards_player_skill_records[0].players_skill_records[0].max_mmr });
         }
         
-        let bestRank = allMaxMMR.reduce((max, rank) => max.mmr > rank.mmr ? max : rank)
-
-        return bestRank;
+        return (allMaxMMR.reduce((max, rank) => max.mmr > rank.mmr ? max : rank));
     }
     
 }

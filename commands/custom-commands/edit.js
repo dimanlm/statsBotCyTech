@@ -91,7 +91,5 @@ module.exports = {
             .setDescription(":white_check_mark: " + updateMsg)
         msg.channel.send({embeds:[embedMsg]})
 
-        return
-
     }
 };
