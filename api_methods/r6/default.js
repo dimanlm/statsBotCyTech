@@ -12,6 +12,8 @@ const r6api = new R6API({ email, password });
 
 const { PLATFORM, REGION } = require("../../config/default.json");
 
+var embedStatMsg = new MessageEmbed()
+
 /**
  * Export functions
  */
@@ -24,8 +26,7 @@ module.exports = {
      */
     findPlayer: async function (u){
         try{
-            let player = await r6api.findByUsername(PLATFORM, u);
-            return player;
+            return (await r6api.findByUsername(PLATFORM, u));
         }catch(e){
             console.log(e);
             return;
@@ -39,9 +40,9 @@ module.exports = {
      * @returns an embed message
      */
     getSeasonalRankedSummary: async function (p){
-        stats = await r6api.getRanks(PLATFORM, p.id, { regionIds: REGION, boardIds: 'pvp_ranked' });
+        let stats = await r6api.getRanks(PLATFORM, p.id, { regionIds: REGION, boardIds: 'pvp_ranked' });
         if (stats.length==0 ){
-            var embedStatMsg = new MessageEmbed()
+            embedStatMsg
                 .setColor('RED')
                 .setDescription("**" + p.username + "** does not have any stats")
             return(embedStatMsg);
@@ -53,7 +54,7 @@ module.exports = {
         var statsUpdateMsg = "Updated " + (statsUpdateTime).toFixed(0) + " minute(s) ago"
         if (statsUpdateTime>59){ statsUpdateTime=statsUpdateTime/60; statsUpdateMsg = "Updated " + (statsUpdateTime).toFixed(0) + " hour(s) ago"}
         // create embed message with stats
-        var embedStatMsg = new MessageEmbed()
+        embedStatMsg
             .setColor(stats[0].seasons[Object.keys(stats[0].seasons)].seasonColor)
             .setTitle("Open full profile")
             .setURL('https://r6.tracker.network/profile/id/'+ p.id)
@@ -76,11 +77,11 @@ module.exports = {
      * @returns embed message with stats
      */
     getSeasonalRankedStats: async function (p){
-        stats = await r6api.getRanks(PLATFORM, p.id, { regionIds: REGION, boardIds: 'pvp_ranked' });
+        let stats = await r6api.getRanks(PLATFORM, p.id, { regionIds: REGION, boardIds: 'pvp_ranked' });
         //console.log(stats[0]);
         // if the promise of an array 'stats' is empty, there're no stats for this player
         if (stats.length==0 || stats[0].seasons[Object.keys(stats[0].seasons)].regions[REGION].boards.pvp_ranked.updateTime=='1970-01-01T00:00:00+00:00'){
-            var embedStatMsg = new MessageEmbed()
+            embedStatMsg
                 .setColor('RED')
                 .setDescription("**" + p.username + "** does not have any ranked stats this season")
             return embedStatMsg
@@ -92,7 +93,7 @@ module.exports = {
         if (statsUpdateTime>59){ statsUpdateTime=statsUpdateTime/60; statsUpdateMsg = "Updated " + (statsUpdateTime).toFixed(0) + " hour(s) ago"}
 
         // create embed message with stats
-        var embedStatMsg = new MessageEmbed()
+        embedStatMsg
             .setColor(stats[0].seasons[Object.keys(stats[0].seasons)].seasonColor)
             .setTitle("Open full profile")
             .setURL('https://r6.tracker.network/profile/id/'+ p.id)
@@ -116,18 +117,18 @@ module.exports = {
      * @returns embed message with stats
      */
      getSeasonalCasualStats: async function (p){
-        stats = await r6api.getRanks(PLATFORM, p.id, { regionIds: REGION, boardIds: 'pvp_casual' });
+        let stats = await r6api.getRanks(PLATFORM, p.id, { regionIds: REGION, boardIds: 'pvp_casual' });
         //console.log(stats[0]);
         // if the promise of an array 'stats' is empty, there're no stats for this player
         if (stats.length==0 || stats[0].seasons[Object.keys(stats[0].seasons)].regions[REGION].boards.pvp_casual.updateTime=='1970-01-01T00:00:00+00:00'){
-            var embedStatMsg = new MessageEmbed()
+            embedStatMsg
                 .setColor('RED')
                 .setDescription("**" + p.username + "** does not have any casual stats this season")
             return embedStatMsg
         }
         let casualStatsPath = stats[0].seasons[Object.keys(stats[0].seasons)].regions[REGION].boards.pvp_casual;
         // create embed message with stats
-        var embedStatMsg = new MessageEmbed()
+        embedStatMsg
             .setColor(stats[0].seasons[Object.keys(stats[0].seasons)].seasonColor)
             .setTitle("Open full profile")
             .setURL('https://r6.tracker.network/profile/id/'+ p.id)
@@ -183,7 +184,7 @@ module.exports = {
         let stats = await r6api.getStats(PLATFORM, p.id);
 
         if (stats.length==0){
-            var embedStatMsg = new MessageEmbed()
+            embedStatMsg
                 .setColor('RED')
                 .setDescription("No R6S stats were found for **" + p.username + "**");
             return embedStatMsg;
@@ -201,7 +202,7 @@ module.exports = {
         // get the best rank
         let theBestRank = await ubi.getTheBestRank(p.id);
 
-        var embedStatMsg = new MessageEmbed()
+        embedStatMsg
             .setColor("#F1C40F")
             .setTitle("Open full profile")
             .setURL('https://r6.tracker.network/profile/id/'+ p.id)
