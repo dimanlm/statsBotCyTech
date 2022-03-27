@@ -10,7 +10,6 @@ env:
   RIOT_API_KEY: ${{ secrets.RIOT_API_KEY }}
   UBI_MAIL: ${{ secrets.UBI_MAIL }}
   UBI_PASSWORD: ${{ secrets.UBI_PASSWORD }}
-  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
 on:
   push:
@@ -41,3 +40,6 @@ jobs:
     
     - name: SonarCloud scan
       uses: sonarsource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
