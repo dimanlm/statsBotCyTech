@@ -5,14 +5,13 @@
     "node": ">=16.13.0"
   },
   "jest": {
-    "verbose": true,
-    "testResultsProcessor": "jest-sonar-reporter"
+    "verbose": true
   },
   "description": "Stats Discord bot - CY TECH project",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "jest --coverage --config ./jest.config.json",
+    "test": "jest --config ./jest.config.json",
     "test:watch": "npm run test -- --watch",
     "dev": "nodemon index.js"
   },
@@ -27,7 +26,6 @@
     "@babel/preset-env": "^7.16.11",
     "babel-jest": "^27.5.1",
     "jest": "^27.5.1",
-    "jest-sonar-reporter": "^2.0.0",
     "nodemon": "^2.0.7"
   },
   "dependencies": {
@@ -35,6 +33,7 @@
     "axios": "^0.24.0",
     "discord.js": "^13.4.0",
     "dotenv": "^10.0.0",
+    "leagueapiwrapper": "^2.5.0",
     "mongoose": "^6.1.5",
     "node-riotapi": "^0.3.0",
     "r6api.js": "^4.0.1",
