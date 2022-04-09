@@ -11,7 +11,11 @@ async function execute(message, args) {
     }
 
     const player = await lol.summoner(username);
-    console.log(player);
+    if (player == null) {
+        await message.reply("Player not found");
+        return;
+    }
+
     await message.reply("Found a player");
 
 }
