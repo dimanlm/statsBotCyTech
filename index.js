@@ -35,8 +35,8 @@ for (let dir of cmdDirs) {
         /* Set command file */
         let command = require(`./commands/${dir}/${file}`);
         botClient.commandsCollection.set(command.name, command);
-    };
-};
+    }
+}
 
  /************************************** */
 

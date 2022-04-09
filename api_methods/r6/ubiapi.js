@@ -4,7 +4,7 @@ const utils_1 = require("../../node_modules/r6api.js/dist/utils.js");
 const constants = require('../../node_modules/r6api.js/dist/constants');
 var axios = require('axios');
 
-const { PLATFORM, TOTAL_NUMBER_OF_SEASONS } = require("../../config/default.json");
+const { PLATFORM, TOTAL_NUMBER_OF_SEASONS, REGION } = require("../../config/default.json");
 
 let date_ob = new Date();
 
@@ -75,26 +75,26 @@ module.exports = {
 
         // get the play hours
         let unrankedPlaytime = 0
-        for (let i=0; i < unranked.all.length; i++){
+        for (let i of Object.keys(unranked.all)){
             unrankedPlaytime+=unranked.all[i].minutesPlayed
         }
 
         // get the wins/losses
         let wl = [0,0]
-        for (let i=0; i < unranked.all.length; i++){
+        for (let i of Object.keys(unranked.all)){
             wl[0]+=unranked.all[i].matchesWon;
             wl[1]+=unranked.all[i].matchesLost;
         }
 
         // get the kills/deaths
         let kd = [0,0]
-        for (let i=0; i < unranked.all.length; i++){
+        for (let i of Object.keys(unranked.all)){
             kd[0]+=unranked.all[i].kills;
             kd[1]+=unranked.all[i].death;
         }
 
         // get kills per match
-        kpm = kd[0]/(wl[0]+wl[1])
+        let kpm = kd[0]/(wl[0]+wl[1])
 
         // played hours, winloss ratio, kd ratio, kills per match
         unrankedStat.push((unrankedPlaytime/60), (wl[0]/wl[1]), (kd[0]/kd[1]), kpm)
@@ -109,7 +109,7 @@ module.exports = {
      */
      getTheBestRank: async function(p){
         // Variable to get the ranks of all season ids
-        allSeasonRequest = "";
+        let allSeasonRequest = "";
         for (let i=-1; Math.abs(i) <= TOTAL_NUMBER_OF_SEASONS; i--){
             if (Math.abs(i)!=TOTAL_NUMBER_OF_SEASONS) allSeasonRequest += i + ',';
             else allSeasonRequest += i;
@@ -135,14 +135,12 @@ module.exports = {
                     
         var allMaxMMR = [];
         var rankName = '';
-        for (i=5; i < res.seasons_player_skill_records.length; i++){
+        for (let i=5; i < res.seasons_player_skill_records.length; i++){
             rankName = utils_1.getRankNameFromRankId(res.seasons_player_skill_records[i].regions_player_skill_records[0].boards_player_skill_records[0].players_skill_records[0].max_rank, i+1); 
             allMaxMMR.push({ "rank": rankName, "mmr":res.seasons_player_skill_records[i].regions_player_skill_records[0].boards_player_skill_records[0].players_skill_records[0].max_mmr });
         }
         
-        let bestRank = allMaxMMR.reduce((max, rank) => max.mmr > rank.mmr ? max : rank)
-
-        return bestRank;
+        return (allMaxMMR.reduce((max, rank) => max.mmr > rank.mmr ? max : rank));
     }
     
 }

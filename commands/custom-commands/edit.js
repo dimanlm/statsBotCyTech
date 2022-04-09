@@ -2,6 +2,8 @@ const customCmdModel = require('../../models/customCmdSchema');
 const { MessageEmbed } = require('discord.js');
 const prefix = require('../../config/prefix.json');
 
+var updateMsg = "";
+
 module.exports = {
     name: 'edit',
     description: 'Edit a custom command',
@@ -60,7 +62,7 @@ module.exports = {
                         cmdName: modification.toLowerCase()
                     }     
                 });
-                var updateMsg = "**"+prefix + command.toLowerCase() + "** has been changed to **"+prefix + modification.toLowerCase() + "**.";
+                updateMsg = "**"+prefix + command.toLowerCase() + "** has been changed to **"+prefix + modification.toLowerCase() + "**.";
                 break;
 
             //change command's response
@@ -71,7 +73,7 @@ module.exports = {
                         response: modification
                     }   
                 });
-                var updateMsg = "**"+prefix + command.toLowerCase() + "**'s response has been changed."
+                updateMsg = "**"+prefix + command.toLowerCase() + "**'s response has been changed."
                 break;
 
             // send an instruction for a correct request
@@ -88,8 +90,6 @@ module.exports = {
             .setColor("GREEN")
             .setDescription(":white_check_mark: " + updateMsg)
         msg.channel.send({embeds:[embedMsg]})
-
-        return
 
     }
 };
