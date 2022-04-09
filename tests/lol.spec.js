@@ -1,11 +1,9 @@
-require('dotenv').config();
-
 const lolAPI = require('../api_methods/lol/default');
 const summonerCommand = require('../commands/lol-stats/summoner');
 const championsCommand = require('../commands/lol-stats/champions');
 
 
-describe("Testing API requests", function () {    
+describe("Unit testing - League of Legents API", function () {    
         it("Summoner", async function () {
             const summoner = await lolAPI.summoner('CyTech');
             expect(summoner).toBeDefined();
@@ -17,7 +15,7 @@ describe("Testing API requests", function () {
         });
 });
 
-describe("Testing commands", function () {
+describe("Testing League of Legends commands", function () {
     // message initialization
     var msg = {
         channel: {
