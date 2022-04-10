@@ -76,10 +76,5 @@ describe("Unit testing - Ubisoft API", function () {
     });
 
     /* ****************************** */
-
-    it("should send player's most played operators", async function () {
-        const result = await endpoints.getSeasonalOperators("2022-03-15T00:00:00.000Z" , existingPlayer);
-        expect(result).toBeDefined();
-    });
     
 });
