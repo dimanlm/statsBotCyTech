@@ -3,7 +3,7 @@
     "id": "aatrox",
     "key": "266",
     "name": "Aatrox",
-    "title": "the Darkin Blade",
+    "title": "The Darkin Blade",
     "tags": [
       "Fighter",
       "Tank"
@@ -42,7 +42,7 @@
     "id": "ahri",
     "key": "103",
     "name": "Ahri",
-    "title": "the Nine-Tailed Fox",
+    "title": "The Nine-Tailed Fox",
     "tags": [
       "Mage",
       "Assassin"
@@ -81,7 +81,7 @@
     "id": "akali",
     "key": "84",
     "name": "Akali",
-    "title": "the Rogue Assassin",
+    "title": "The Rogue Assassin",
     "tags": [
       "Assassin"
     ],
@@ -119,7 +119,7 @@
     "id": "alistar",
     "key": "12",
     "name": "Alistar",
-    "title": "the Minotaur",
+    "title": "The Minotaur",
     "tags": [
       "Tank",
       "Support"
@@ -158,7 +158,7 @@
     "id": "amumu",
     "key": "32",
     "name": "Amumu",
-    "title": "the Sad Mummy",
+    "title": "The Sad Mummy",
     "tags": [
       "Tank",
       "Mage"
@@ -197,7 +197,7 @@
     "id": "anivia",
     "key": "34",
     "name": "Anivia",
-    "title": "the Cryophoenix",
+    "title": "The Cryophoenix",
     "tags": [
       "Mage",
       "Support"
@@ -236,7 +236,7 @@
     "id": "annie",
     "key": "1",
     "name": "Annie",
-    "title": "the Dark Child",
+    "title": "The Dark Child",
     "tags": [
       "Mage"
     ],
@@ -274,7 +274,7 @@
     "id": "aphelios",
     "key": "523",
     "name": "Aphelios",
-    "title": "the Weapon of the Faithful",
+    "title": "The Weapon of the Faithful",
     "tags": [
       "Marksman"
     ],
@@ -312,7 +312,7 @@
     "id": "ashe",
     "key": "22",
     "name": "Ashe",
-    "title": "the Frost Archer",
+    "title": "The Frost Archer",
     "tags": [
       "Marksman",
       "Support"
@@ -389,7 +389,7 @@
     "id": "azir",
     "key": "268",
     "name": "Azir",
-    "title": "the Emperor of the Sands",
+    "title": "The Emperor of the Sands",
     "tags": [
       "Mage",
       "Marksman"
@@ -428,7 +428,7 @@
     "id": "bard",
     "key": "432",
     "name": "Bard",
-    "title": "the Wandering Caretaker",
+    "title": "The Wandering Caretaker",
     "tags": [
       "Support",
       "Mage"
@@ -467,7 +467,7 @@
     "id": "blitzcrank",
     "key": "53",
     "name": "Blitzcrank",
-    "title": "the Great Steam Golem",
+    "title": "The Great Steam Golem",
     "tags": [
       "Tank",
       "Fighter"
@@ -506,7 +506,7 @@
     "id": "brand",
     "key": "63",
     "name": "Brand",
-    "title": "the Burning Vengeance",
+    "title": "The Burning Vengeance",
     "tags": [
       "Mage"
     ],
@@ -544,7 +544,7 @@
     "id": "braum",
     "key": "201",
     "name": "Braum",
-    "title": "the Heart of the Freljord",
+    "title": "The Heart of the Freljord",
     "tags": [
       "Support",
       "Tank"
@@ -583,7 +583,7 @@
     "id": "caitlyn",
     "key": "51",
     "name": "Caitlyn",
-    "title": "the Sheriff of Piltover",
+    "title": "The Sheriff of Piltover",
     "tags": [
       "Marksman"
     ],
@@ -621,7 +621,7 @@
     "id": "camille",
     "key": "164",
     "name": "Camille",
-    "title": "the Steel Shadow",
+    "title": "The Steel Shadow",
     "tags": [
       "Fighter",
       "Tank"
@@ -660,7 +660,7 @@
     "id": "cassiopeia",
     "key": "69",
     "name": "Cassiopeia",
-    "title": "the Serpent's Embrace",
+    "title": "The Serpent's Embrace",
     "tags": [
       "Mage"
     ],
@@ -698,7 +698,7 @@
     "id": "chogath",
     "key": "31",
     "name": "Cho'Gath",
-    "title": "the Terror of the Void",
+    "title": "The Terror of the Void",
     "tags": [
       "Tank",
       "Mage"
@@ -737,7 +737,7 @@
     "id": "corki",
     "key": "42",
     "name": "Corki",
-    "title": "the Daring Bombardier",
+    "title": "The Daring Bombardier",
     "tags": [
       "Marksman"
     ],
@@ -775,7 +775,7 @@
     "id": "darius",
     "key": "122",
     "name": "Darius",
-    "title": "the Hand of Noxus",
+    "title": "The Hand of Noxus",
     "tags": [
       "Fighter",
       "Tank"
@@ -853,7 +853,7 @@
     "id": "draven",
     "key": "119",
     "name": "Draven",
-    "title": "the Glorious Executioner",
+    "title": "The Glorious Executioner",
     "tags": [
       "Marksman"
     ],
@@ -891,7 +891,7 @@
     "id": "drmundo",
     "key": "36",
     "name": "Dr. Mundo",
-    "title": "the Madman of Zaun",
+    "title": "The Madman of Zaun",
     "tags": [
       "Fighter",
       "Tank"
@@ -930,7 +930,7 @@
     "id": "ekko",
     "key": "245",
     "name": "Ekko",
-    "title": "the Boy Who Shattered Time",
+    "title": "The Boy Who Shattered Time",
     "tags": [
       "Assassin",
       "Fighter"
@@ -969,7 +969,7 @@
     "id": "elise",
     "key": "60",
     "name": "Elise",
-    "title": "the Spider Queen",
+    "title": "The Spider Queen",
     "tags": [
       "Mage",
       "Fighter"
@@ -1047,7 +1047,7 @@
     "id": "ezreal",
     "key": "81",
     "name": "Ezreal",
-    "title": "the Prodigal Explorer",
+    "title": "The Prodigal Explorer",
     "tags": [
       "Marksman",
       "Mage"
@@ -1086,7 +1086,7 @@
     "id": "fiddlesticks",
     "key": "9",
     "name": "Fiddlesticks",
-    "title": "the Ancient Fear",
+    "title": "The Ancient Fear",
     "tags": [
       "Mage",
       "Support"
@@ -1125,7 +1125,7 @@
     "id": "fiora",
     "key": "114",
     "name": "Fiora",
-    "title": "the Grand Duelist",
+    "title": "The Grand Duelist",
     "tags": [
       "Fighter",
       "Assassin"
@@ -1164,7 +1164,7 @@
     "id": "fizz",
     "key": "105",
     "name": "Fizz",
-    "title": "the Tidal Trickster",
+    "title": "The Tidal Trickster",
     "tags": [
       "Assassin",
       "Fighter"
@@ -1203,7 +1203,7 @@
     "id": "galio",
     "key": "3",
     "name": "Galio",
-    "title": "the Colossus",
+    "title": "The Colossus",
     "tags": [
       "Tank",
       "Mage"
@@ -1242,7 +1242,7 @@
     "id": "gangplank",
     "key": "41",
     "name": "Gangplank",
-    "title": "the Saltwater Scourge",
+    "title": "The Saltwater Scourge",
     "tags": [
       "Fighter"
     ],
@@ -1319,7 +1319,7 @@
     "id": "gnar",
     "key": "150",
     "name": "Gnar",
-    "title": "the Missing Link",
+    "title": "The Missing Link",
     "tags": [
       "Fighter",
       "Tank"
@@ -1358,7 +1358,7 @@
     "id": "gragas",
     "key": "79",
     "name": "Gragas",
-    "title": "the Rabble Rouser",
+    "title": "The Rabble Rouser",
     "tags": [
       "Fighter",
       "Mage"
@@ -1397,7 +1397,7 @@
     "id": "graves",
     "key": "104",
     "name": "Graves",
-    "title": "the Outlaw",
+    "title": "The Outlaw",
     "tags": [
       "Marksman"
     ],
@@ -1435,7 +1435,7 @@
     "id": "hecarim",
     "key": "120",
     "name": "Hecarim",
-    "title": "the Shadow of War",
+    "title": "The Shadow of War",
     "tags": [
       "Fighter",
       "Tank"
@@ -1474,7 +1474,7 @@
     "id": "heimerdinger",
     "key": "74",
     "name": "Heimerdinger",
-    "title": "the Revered Inventor",
+    "title": "The Revered Inventor",
     "tags": [
       "Mage",
       "Support"
@@ -1513,7 +1513,7 @@
     "id": "illaoi",
     "key": "420",
     "name": "Illaoi",
-    "title": "the Kraken Priestess",
+    "title": "The Kraken Priestess",
     "tags": [
       "Fighter",
       "Tank"
@@ -1552,7 +1552,7 @@
     "id": "irelia",
     "key": "39",
     "name": "Irelia",
-    "title": "the Blade Dancer",
+    "title": "The Blade Dancer",
     "tags": [
       "Fighter",
       "Assassin"
@@ -1591,7 +1591,7 @@
     "id": "ivern",
     "key": "427",
     "name": "Ivern",
-    "title": "the Green Father",
+    "title": "The Green Father",
     "tags": [
       "Support",
       "Mage"
@@ -1630,7 +1630,7 @@
     "id": "janna",
     "key": "40",
     "name": "Janna",
-    "title": "the Storm's Fury",
+    "title": "The Storm's Fury",
     "tags": [
       "Support",
       "Mage"
@@ -1669,7 +1669,7 @@
     "id": "jarvaniv",
     "key": "59",
     "name": "Jarvan IV",
-    "title": "the Exemplar of Demacia",
+    "title": "The Exemplar of Demacia",
     "tags": [
       "Tank",
       "Fighter"
@@ -1747,7 +1747,7 @@
     "id": "jayce",
     "key": "126",
     "name": "Jayce",
-    "title": "the Defender of Tomorrow",
+    "title": "The Defender of Tomorrow",
     "tags": [
       "Fighter",
       "Marksman"
@@ -1786,7 +1786,7 @@
     "id": "jhin",
     "key": "202",
     "name": "Jhin",
-    "title": "the Virtuoso",
+    "title": "The Virtuoso",
     "tags": [
       "Marksman",
       "Mage"
@@ -1825,7 +1825,7 @@
     "id": "jinx",
     "key": "222",
     "name": "Jinx",
-    "title": "the Loose Cannon",
+    "title": "The Loose Cannon",
     "tags": [
       "Marksman"
     ],
@@ -1901,7 +1901,7 @@
     "id": "kalista",
     "key": "429",
     "name": "Kalista",
-    "title": "the Spear of Vengeance",
+    "title": "The Spear of Vengeance",
     "tags": [
       "Marksman"
     ],
@@ -1939,7 +1939,7 @@
     "id": "karma",
     "key": "43",
     "name": "Karma",
-    "title": "the Enlightened One",
+    "title": "The Enlightened One",
     "tags": [
       "Mage",
       "Support"
@@ -1978,7 +1978,7 @@
     "id": "karthus",
     "key": "30",
     "name": "Karthus",
-    "title": "the Deathsinger",
+    "title": "The Deathsinger",
     "tags": [
       "Mage"
     ],
@@ -2016,7 +2016,7 @@
     "id": "kassadin",
     "key": "38",
     "name": "Kassadin",
-    "title": "the Void Walker",
+    "title": "The Void Walker",
     "tags": [
       "Assassin",
       "Mage"
@@ -2055,7 +2055,7 @@
     "id": "katarina",
     "key": "55",
     "name": "Katarina",
-    "title": "the Sinister Blade",
+    "title": "The Sinister Blade",
     "tags": [
       "Assassin",
       "Mage"
@@ -2094,7 +2094,7 @@
     "id": "kayle",
     "key": "10",
     "name": "Kayle",
-    "title": "the Righteous",
+    "title": "The Righteous",
     "tags": [
       "Fighter",
       "Support"
@@ -2133,7 +2133,7 @@
     "id": "kayn",
     "key": "141",
     "name": "Kayn",
-    "title": "the Shadow Reaper",
+    "title": "The Shadow Reaper",
     "tags": [
       "Fighter",
       "Assassin"
@@ -2172,7 +2172,7 @@
     "id": "kennen",
     "key": "85",
     "name": "Kennen",
-    "title": "the Heart of the Tempest",
+    "title": "The Heart of the Tempest",
     "tags": [
       "Mage",
       "Marksman"
@@ -2211,7 +2211,7 @@
     "id": "khazix",
     "key": "121",
     "name": "Kha'Zix",
-    "title": "the Voidreaver",
+    "title": "The Voidreaver",
     "tags": [
       "Assassin"
     ],
@@ -2287,7 +2287,7 @@
     "id": "kled",
     "key": "240",
     "name": "Kled",
-    "title": "the Cantankerous Cavalier",
+    "title": "The Cantankerous Cavalier",
     "tags": [
       "Fighter",
       "Tank"
@@ -2326,7 +2326,7 @@
     "id": "kogmaw",
     "key": "96",
     "name": "Kog'Maw",
-    "title": "the Mouth of the Abyss",
+    "title": "The Mouth of the Abyss",
     "tags": [
       "Marksman",
       "Mage"
@@ -2365,7 +2365,7 @@
     "id": "leblanc",
     "key": "7",
     "name": "LeBlanc",
-    "title": "the Deceiver",
+    "title": "The Deceiver",
     "tags": [
       "Assassin",
       "Mage"
@@ -2404,7 +2404,7 @@
     "id": "leesin",
     "key": "64",
     "name": "Lee Sin",
-    "title": "the Blind Monk",
+    "title": "The Blind Monk",
     "tags": [
       "Fighter",
       "Assassin"
@@ -2443,7 +2443,7 @@
     "id": "leona",
     "key": "89",
     "name": "Leona",
-    "title": "the Radiant Dawn",
+    "title": "The Radiant Dawn",
     "tags": [
       "Tank",
       "Support"
@@ -2482,7 +2482,7 @@
     "id": "lillia",
     "key": "876",
     "name": "Lillia",
-    "title": "the Bashful Bloom",
+    "title": "The Bashful Bloom",
     "tags": [
       "Fighter",
       "Mage"
@@ -2521,7 +2521,7 @@
     "id": "lissandra",
     "key": "127",
     "name": "Lissandra",
-    "title": "the Ice Witch",
+    "title": "The Ice Witch",
     "tags": [
       "Mage"
     ],
@@ -2559,7 +2559,7 @@
     "id": "lucian",
     "key": "236",
     "name": "Lucian",
-    "title": "the Purifier",
+    "title": "The Purifier",
     "tags": [
       "Marksman"
     ],
@@ -2597,7 +2597,7 @@
     "id": "lulu",
     "key": "117",
     "name": "Lulu",
-    "title": "the Fae Sorceress",
+    "title": "The Fae Sorceress",
     "tags": [
       "Support",
       "Mage"
@@ -2636,7 +2636,7 @@
     "id": "lux",
     "key": "99",
     "name": "Lux",
-    "title": "the Lady of Luminosity",
+    "title": "The Lady of Luminosity",
     "tags": [
       "Mage",
       "Support"
@@ -2714,7 +2714,7 @@
     "id": "malzahar",
     "key": "90",
     "name": "Malzahar",
-    "title": "the Prophet of the Void",
+    "title": "The Prophet of the Void",
     "tags": [
       "Mage",
       "Assassin"
@@ -2753,7 +2753,7 @@
     "id": "maokai",
     "key": "57",
     "name": "Maokai",
-    "title": "the Twisted Treant",
+    "title": "The Twisted Treant",
     "tags": [
       "Tank",
       "Mage"
@@ -2792,7 +2792,7 @@
     "id": "masteryi",
     "key": "11",
     "name": "Master Yi",
-    "title": "the Wuju Bladesman",
+    "title": "The Wuju Bladesman",
     "tags": [
       "Assassin",
       "Fighter"
@@ -2831,7 +2831,7 @@
     "id": "missfortune",
     "key": "21",
     "name": "Miss Fortune",
-    "title": "the Bounty Hunter",
+    "title": "The Bounty Hunter",
     "tags": [
       "Marksman"
     ],
@@ -2869,7 +2869,7 @@
     "id": "monkeyking",
     "key": "62",
     "name": "Wukong",
-    "title": "the Monkey King",
+    "title": "The Monkey King",
     "tags": [
       "Fighter",
       "Tank"
@@ -2908,7 +2908,7 @@
     "id": "mordekaiser",
     "key": "82",
     "name": "Mordekaiser",
-    "title": "the Iron Revenant",
+    "title": "The Iron Revenant",
     "tags": [
       "Fighter"
     ],
@@ -2946,7 +2946,7 @@
     "id": "morgana",
     "key": "25",
     "name": "Morgana",
-    "title": "the Fallen",
+    "title": "The Fallen",
     "tags": [
       "Mage",
       "Support"
@@ -2985,7 +2985,7 @@
     "id": "nami",
     "key": "267",
     "name": "Nami",
-    "title": "the Tidecaller",
+    "title": "The Tidecaller",
     "tags": [
       "Support",
       "Mage"
@@ -3024,7 +3024,7 @@
     "id": "nasus",
     "key": "75",
     "name": "Nasus",
-    "title": "the Curator of the Sands",
+    "title": "The Curator of the Sands",
     "tags": [
       "Fighter",
       "Tank"
@@ -3063,7 +3063,7 @@
     "id": "nautilus",
     "key": "111",
     "name": "Nautilus",
-    "title": "the Titan of the Depths",
+    "title": "The Titan of the Depths",
     "tags": [
       "Tank",
       "Fighter"
@@ -3102,7 +3102,7 @@
     "id": "neeko",
     "key": "518",
     "name": "Neeko",
-    "title": "the Curious Chameleon",
+    "title": "The Curious Chameleon",
     "tags": [
       "Mage",
       "Support"
@@ -3141,7 +3141,7 @@
     "id": "nidalee",
     "key": "76",
     "name": "Nidalee",
-    "title": "the Bestial Huntress",
+    "title": "The Bestial Huntress",
     "tags": [
       "Assassin",
       "Mage"
@@ -3180,7 +3180,7 @@
     "id": "nocturne",
     "key": "56",
     "name": "Nocturne",
-    "title": "the Eternal Nightmare",
+    "title": "The Eternal Nightmare",
     "tags": [
       "Assassin",
       "Fighter"
@@ -3219,7 +3219,7 @@
     "id": "nunu",
     "key": "20",
     "name": "Nunu & Willump",
-    "title": "the Boy and His Yeti",
+    "title": "The Boy and His Yeti",
     "tags": [
       "Tank",
       "Fighter"
@@ -3258,7 +3258,7 @@
     "id": "olaf",
     "key": "2",
     "name": "Olaf",
-    "title": "the Berserker",
+    "title": "The Berserker",
     "tags": [
       "Fighter",
       "Tank"
@@ -3297,7 +3297,7 @@
     "id": "orianna",
     "key": "61",
     "name": "Orianna",
-    "title": "the Lady of Clockwork",
+    "title": "The Lady of Clockwork",
     "tags": [
       "Mage",
       "Support"
@@ -3375,7 +3375,7 @@
     "id": "pantheon",
     "key": "80",
     "name": "Pantheon",
-    "title": "the Unbreakable Spear",
+    "title": "The Unbreakable Spear",
     "tags": [
       "Fighter",
       "Assassin"
@@ -3453,7 +3453,7 @@
     "id": "pyke",
     "key": "555",
     "name": "Pyke",
-    "title": "the Bloodharbor Ripper",
+    "title": "The Bloodharbor Ripper",
     "tags": [
       "Support",
       "Assassin"
@@ -3608,7 +3608,7 @@
     "id": "rammus",
     "key": "33",
     "name": "Rammus",
-    "title": "the Armordillo",
+    "title": "The Armordillo",
     "tags": [
       "Tank",
       "Fighter"
@@ -3647,7 +3647,7 @@
     "id": "reksai",
     "key": "421",
     "name": "Rek'Sai",
-    "title": "the Void Burrower",
+    "title": "The Void Burrower",
     "tags": [
       "Fighter"
     ],
@@ -3685,7 +3685,7 @@
     "id": "renekton",
     "key": "58",
     "name": "Renekton",
-    "title": "the Butcher of the Sands",
+    "title": "The Butcher of the Sands",
     "tags": [
       "Fighter",
       "Tank"
@@ -3724,7 +3724,7 @@
     "id": "rengar",
     "key": "107",
     "name": "Rengar",
-    "title": "the Pridestalker",
+    "title": "The Pridestalker",
     "tags": [
       "Assassin",
       "Fighter"
@@ -3763,7 +3763,7 @@
     "id": "riven",
     "key": "92",
     "name": "Riven",
-    "title": "the Exile",
+    "title": "The Exile",
     "tags": [
       "Fighter",
       "Assassin"
@@ -3802,7 +3802,7 @@
     "id": "rumble",
     "key": "68",
     "name": "Rumble",
-    "title": "the Mechanized Menace",
+    "title": "The Mechanized Menace",
     "tags": [
       "Fighter",
       "Mage"
@@ -3841,7 +3841,7 @@
     "id": "ryze",
     "key": "13",
     "name": "Ryze",
-    "title": "the Rune Mage",
+    "title": "The Rune Mage",
     "tags": [
       "Mage",
       "Fighter"
@@ -3880,7 +3880,7 @@
     "id": "samira",
     "key": "360",
     "name": "Samira",
-    "title": "the Desert Rose",
+    "title": "The Desert Rose",
     "tags": [
       "Marksman"
     ],
@@ -3957,7 +3957,7 @@
     "id": "senna",
     "key": "235",
     "name": "Senna",
-    "title": "the Redeemer",
+    "title": "The Redeemer",
     "tags": [
       "Marksman",
       "Support"
@@ -3996,7 +3996,7 @@
     "id": "seraphine",
     "key": "147",
     "name": "Seraphine",
-    "title": "the Starry-Eyed Songstress",
+    "title": "The Starry-Eyed Songstress",
     "tags": [
       "Mage",
       "Support"
@@ -4035,7 +4035,7 @@
     "id": "sett",
     "key": "875",
     "name": "Sett",
-    "title": "the Boss",
+    "title": "The Boss",
     "tags": [
       "Fighter",
       "Tank"
@@ -4074,7 +4074,7 @@
     "id": "shaco",
     "key": "35",
     "name": "Shaco",
-    "title": "the Demon Jester",
+    "title": "The Demon Jester",
     "tags": [
       "Assassin"
     ],
@@ -4112,7 +4112,7 @@
     "id": "shen",
     "key": "98",
     "name": "Shen",
-    "title": "the Eye of Twilight",
+    "title": "The Eye of Twilight",
     "tags": [
       "Tank"
     ],
@@ -4150,7 +4150,7 @@
     "id": "shyvana",
     "key": "102",
     "name": "Shyvana",
-    "title": "the Half-Dragon",
+    "title": "The Half-Dragon",
     "tags": [
       "Fighter",
       "Tank"
@@ -4189,7 +4189,7 @@
     "id": "singed",
     "key": "27",
     "name": "Singed",
-    "title": "the Mad Chemist",
+    "title": "The Mad Chemist",
     "tags": [
       "Tank",
       "Fighter"
@@ -4267,7 +4267,7 @@
     "id": "sivir",
     "key": "15",
     "name": "Sivir",
-    "title": "the Battle Mistress",
+    "title": "The Battle Mistress",
     "tags": [
       "Marksman"
     ],
@@ -4305,7 +4305,7 @@
     "id": "skarner",
     "key": "72",
     "name": "Skarner",
-    "title": "the Crystal Vanguard",
+    "title": "The Crystal Vanguard",
     "tags": [
       "Fighter",
       "Tank"
@@ -4383,7 +4383,7 @@
     "id": "soraka",
     "key": "16",
     "name": "Soraka",
-    "title": "the Starchild",
+    "title": "The Starchild",
     "tags": [
       "Support",
       "Mage"
@@ -4422,7 +4422,7 @@
     "id": "swain",
     "key": "50",
     "name": "Swain",
-    "title": "the Noxian Grand General",
+    "title": "The Noxian Grand General",
     "tags": [
       "Mage",
       "Fighter"
@@ -4461,7 +4461,7 @@
     "id": "sylas",
     "key": "517",
     "name": "Sylas",
-    "title": "the Unshackled",
+    "title": "The Unshackled",
     "tags": [
       "Mage",
       "Assassin"
@@ -4500,7 +4500,7 @@
     "id": "syndra",
     "key": "134",
     "name": "Syndra",
-    "title": "the Dark Sovereign",
+    "title": "The Dark Sovereign",
     "tags": [
       "Mage",
       "Support"
@@ -4539,7 +4539,7 @@
     "id": "tahmkench",
     "key": "223",
     "name": "Tahm Kench",
-    "title": "the River King",
+    "title": "The River King",
     "tags": [
       "Support",
       "Tank"
@@ -4578,7 +4578,7 @@
     "id": "taliyah",
     "key": "163",
     "name": "Taliyah",
-    "title": "the Stoneweaver",
+    "title": "The Stoneweaver",
     "tags": [
       "Mage",
       "Support"
@@ -4617,7 +4617,7 @@
     "id": "talon",
     "key": "91",
     "name": "Talon",
-    "title": "the Blade's Shadow",
+    "title": "The Blade's Shadow",
     "tags": [
       "Assassin"
     ],
@@ -4655,7 +4655,7 @@
     "id": "taric",
     "key": "44",
     "name": "Taric",
-    "title": "the Shield of Valoran",
+    "title": "The Shield of Valoran",
     "tags": [
       "Support",
       "Fighter"
@@ -4694,7 +4694,7 @@
     "id": "teemo",
     "key": "17",
     "name": "Teemo",
-    "title": "the Swift Scout",
+    "title": "The Swift Scout",
     "tags": [
       "Marksman",
       "Assassin"
@@ -4733,7 +4733,7 @@
     "id": "thresh",
     "key": "412",
     "name": "Thresh",
-    "title": "the Chain Warden",
+    "title": "The Chain Warden",
     "tags": [
       "Support",
       "Fighter"
@@ -4772,7 +4772,7 @@
     "id": "tristana",
     "key": "18",
     "name": "Tristana",
-    "title": "the Yordle Gunner",
+    "title": "The Yordle Gunner",
     "tags": [
       "Marksman",
       "Assassin"
@@ -4811,7 +4811,7 @@
     "id": "trundle",
     "key": "48",
     "name": "Trundle",
-    "title": "the Troll King",
+    "title": "The Troll King",
     "tags": [
       "Fighter",
       "Tank"
@@ -4850,7 +4850,7 @@
     "id": "tryndamere",
     "key": "23",
     "name": "Tryndamere",
-    "title": "the Barbarian King",
+    "title": "The Barbarian King",
     "tags": [
       "Fighter",
       "Assassin"
@@ -4889,7 +4889,7 @@
     "id": "twistedfate",
     "key": "4",
     "name": "Twisted Fate",
-    "title": "the Card Master",
+    "title": "The Card Master",
     "tags": [
       "Mage"
     ],
@@ -4927,7 +4927,7 @@
     "id": "twitch",
     "key": "29",
     "name": "Twitch",
-    "title": "the Plague Rat",
+    "title": "The Plague Rat",
     "tags": [
       "Marksman",
       "Assassin"
@@ -4966,7 +4966,7 @@
     "id": "udyr",
     "key": "77",
     "name": "Udyr",
-    "title": "the Spirit Walker",
+    "title": "The Spirit Walker",
     "tags": [
       "Fighter",
       "Tank"
@@ -5005,7 +5005,7 @@
     "id": "urgot",
     "key": "6",
     "name": "Urgot",
-    "title": "the Dreadnought",
+    "title": "The Dreadnought",
     "tags": [
       "Fighter",
       "Tank"
@@ -5044,7 +5044,7 @@
     "id": "varus",
     "key": "110",
     "name": "Varus",
-    "title": "the Arrow of Retribution",
+    "title": "The Arrow of Retribution",
     "tags": [
       "Marksman",
       "Mage"
@@ -5083,7 +5083,7 @@
     "id": "vayne",
     "key": "67",
     "name": "Vayne",
-    "title": "the Night Hunter",
+    "title": "The Night Hunter",
     "tags": [
       "Marksman",
       "Assassin"
@@ -5122,7 +5122,7 @@
     "id": "veigar",
     "key": "45",
     "name": "Veigar",
-    "title": "the Tiny Master of Evil",
+    "title": "The Tiny Master of Evil",
     "tags": [
       "Mage"
     ],
@@ -5160,7 +5160,7 @@
     "id": "veigar",
     "key": "161",
     "name": "Veigar",
-    "title": "the Tiny Master of Evil",
+    "title": "The Tiny Master of Evil",
     "tags": [
       "Mage"
     ],
@@ -5198,7 +5198,7 @@
     "id": "vi",
     "key": "254",
     "name": "Vi",
-    "title": "the Piltover Enforcer",
+    "title": "The Piltover Enforcer",
     "tags": [
       "Fighter",
       "Assassin"
@@ -5237,7 +5237,7 @@
     "id": "viktor",
     "key": "112",
     "name": "Viktor",
-    "title": "the Machine Herald",
+    "title": "The Machine Herald",
     "tags": [
       "Mage"
     ],
@@ -5275,7 +5275,7 @@
     "id": "vladimir",
     "key": "8",
     "name": "Vladimir",
-    "title": "the Crimson Reaper",
+    "title": "The Crimson Reaper",
     "tags": [
       "Mage"
     ],
@@ -5313,7 +5313,7 @@
     "id": "volibear",
     "key": "106",
     "name": "Volibear",
-    "title": "the Relentless Storm",
+    "title": "The Relentless Storm",
     "tags": [
       "Fighter",
       "Tank"
@@ -5352,7 +5352,7 @@
     "id": "warwick",
     "key": "19",
     "name": "Warwick",
-    "title": "the Uncaged Wrath of Zaun",
+    "title": "The Uncaged Wrath of Zaun",
     "tags": [
       "Fighter",
       "Tank"
@@ -5391,7 +5391,7 @@
     "id": "xayah",
     "key": "498",
     "name": "Xayah",
-    "title": "the Rebel",
+    "title": "The Rebel",
     "tags": [
       "Marksman"
     ],
@@ -5429,7 +5429,7 @@
     "id": "xerath",
     "key": "101",
     "name": "Xerath",
-    "title": "the Magus Ascendant",
+    "title": "The Magus Ascendant",
     "tags": [
       "Mage"
     ],
@@ -5467,7 +5467,7 @@
     "id": "xinzhao",
     "key": "5",
     "name": "Xin Zhao",
-    "title": "the Seneschal of Demacia",
+    "title": "The Seneschal of Demacia",
     "tags": [
       "Fighter",
       "Assassin"
@@ -5506,7 +5506,7 @@
     "id": "yasuo",
     "key": "157",
     "name": "Yasuo",
-    "title": "the Unforgiven",
+    "title": "The Unforgiven",
     "tags": [
       "Fighter",
       "Assassin"
@@ -5545,7 +5545,7 @@
     "id": "yone",
     "key": "777",
     "name": "Yone",
-    "title": "the Unforgotten",
+    "title": "The Unforgotten",
     "tags": [
       "Assassin",
       "Fighter"
@@ -5623,7 +5623,7 @@
     "id": "yuumi",
     "key": "350",
     "name": "Yuumi",
-    "title": "the Magical Cat",
+    "title": "The Magical Cat",
     "tags": [
       "Support",
       "Mage"
@@ -5662,7 +5662,7 @@
     "id": "zac",
     "key": "154",
     "name": "Zac",
-    "title": "the Secret Weapon",
+    "title": "The Secret Weapon",
     "tags": [
       "Tank",
       "Fighter"
@@ -5701,7 +5701,7 @@
     "id": "zed",
     "key": "238",
     "name": "Zed",
-    "title": "the Master of Shadows",
+    "title": "The Master of Shadows",
     "tags": [
       "Assassin"
     ],
@@ -5739,7 +5739,7 @@
     "id": "ziggs",
     "key": "115",
     "name": "Ziggs",
-    "title": "the Hexplosives Expert",
+    "title": "The Hexplosives Expert",
     "tags": [
       "Mage"
     ],
@@ -5777,7 +5777,7 @@
     "id": "zilean",
     "key": "26",
     "name": "Zilean",
-    "title": "the Chronokeeper",
+    "title": "The Chronokeeper",
     "tags": [
       "Support",
       "Mage"
@@ -5816,7 +5816,7 @@
     "id": "zoe",
     "key": "142",
     "name": "Zoe",
-    "title": "the Aspect of Twilight",
+    "title": "The Aspect of Twilight",
     "tags": [
       "Mage",
       "Support"
@@ -5894,8 +5894,8 @@
     "id": "akshan",
     "key": "166",
     "name": "Akshan",
-    "title": "the Darkin Blade",
-    "icon": "http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Akshan.png",
+    "title": "The Darkin Blade",
+    "icon": "http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Khazix.png",
     "tags": [
       "Fighter",
       "Tank"
@@ -5905,8 +5905,8 @@
     "id": "gwen",
     "key": "887",
     "name": "Gwen",
-    "title": "the Darkin Blade",
-    "icon": "http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Gwen.png",
+    "title": "The Darkin Blade",
+    "icon": "http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Khazix.png",
     "tags": [
       "Fighter",
       "Tank"
@@ -5916,8 +5916,8 @@
     "id": "renata",
     "key": "888",
     "name": "Renata Glasc",
-    "title": "the Darkin Blade",
-    "icon": "http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Ryze.png",
+    "title": "The Darkin Blade",
+    "icon": "http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Khazix.png",
     "tags": [
       "Fighter",
       "Tank"
@@ -5927,8 +5927,8 @@
     "id": "vex",
     "key": "771",
     "name": "Vex",
-    "title": "the Darkin Blade",
-    "icon": "http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Vex.png",
+    "title": "The Darkin Blade",
+    "icon": "http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Khazix.png",
     "tags": [
       "Fighter",
       "Tank"
@@ -5939,8 +5939,8 @@
     "id": "viego",
     "key": "234",
     "name": "Viego",
-    "title": "the Darkin Blade",
-    "icon": "http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Viego.png",
+    "title": "The Darkin Blade",
+    "icon": "http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Khazix.png",
     "tags": [
       "Fighter",
       "Tank"
@@ -5950,8 +5950,8 @@
     "id": "zeri",
     "key": "221",
     "name": "Zeri",
-    "title": "the Darkin Blade",
-    "icon": "http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Zeri.png",
+    "title": "The Darkin Blade",
+    "icon": "http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Khazix.png",
     "tags": [
       "Fighter",
       "Tank"
@@ -5961,8 +5961,8 @@
     "id": "rell",
     "key": "526",
     "name": "Rell",
-    "title": "the Darkin Blade",
-    "icon": "http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Rell.png",
+    "title": "The Darkin Blade",
+    "icon": "http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Khazix.png",
     "tags": [
       "Fighter",
       "Tank"
