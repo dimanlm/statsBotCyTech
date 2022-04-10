@@ -31,6 +31,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        fetch-depth: 0
         
     - name: Install Node dependencies
       run: npm i
