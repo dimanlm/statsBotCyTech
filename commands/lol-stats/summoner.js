@@ -1,14 +1,23 @@
-require('dotenv').config();
-const { MessageEmbed } = require('discord.js');
+const lol = require('../../api_methods/lol/default');
+var help = require('../support/help');
 
-// Init
-const Lol = require('node-riotapi/dist/api/lol').default;
-var lol = new Lol({ apiKey: process.env.RIOT_API_KEY, region: 'kr' });
 
-// Get LOL stats
-async function execute() {
-    const summonerInfo = await lol.getSummonerByName('대덕sw마이스터고');
-    console.log(summonerInfo);
+async function execute(message, args) {
+    let username = args[0]
+    if (username == undefined) {
+        help.execute(message);
+        await message.reply("Something is wrong with your command. Please try again.");
+        return;
+    }
+
+    const player = await lol.summoner(username);
+    if (player == null) {
+        await message.reply("Player not found");
+        return;
+    }
+
+    await message.reply("Found a player");
+
 }
 
 // export
