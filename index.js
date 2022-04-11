@@ -8,21 +8,6 @@ const raygun = require('raygun');
 const prefix = require("./config/prefix.json");
 const customCmdModel = require('./models/customCmdSchema');
 
-const http = require('http');
-const port = process.env.PORT || 3030;
-const hostname = process.env.HOST || 'localhost';
-
-const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.writeHead(301, { "Location": "https://discord.com/api/oauth2/authorize?client_id=956548947600605215&permissions=8&scope=bot" });
-    res.end();
-});
-
-server.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}`);
-});
-
 /************************************** */
 
 const raygunClient = new raygun.Client().init({
