@@ -98,7 +98,7 @@ describe("Admin -> Add custom commands", function () {
         await customCmdModel.findOneAndDelete({ guildId: "1000", cmdName: 'hello' });
         await customCmdModel.findOneAndDelete({ guildId: "1001", cmdName: 'hello' });
 
-        mongoose.connection.close()
+        mongoose.connection.close();
     })
 
 });

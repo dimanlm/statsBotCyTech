@@ -2,5 +2,6 @@
     "testRegex": "((\\.|/*.)(spec))\\.js?$",
     "transform": {
         "^.+\\.jsx?$": "babel-jest"
-    }
+    },
+    "globalTeardown": "./test-teardown-globals.js"
 }

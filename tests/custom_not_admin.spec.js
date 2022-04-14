@@ -30,9 +30,7 @@ describe("Custom commands - not admin user", function () {
 
     // connecting to mongodb
     beforeAll(async () => {
-        await mongoose.connect(process.env.URI, {
-            keepAlive: true
-        });
+        await mongoose.connect(process.env.URI);
     });
 
     beforeEach(() => {
@@ -67,8 +65,8 @@ describe("Custom commands - not admin user", function () {
 
 
     // closing the connection
-    afterAll(async () => {
-        mongoose.connection.close()
+    afterAll(() => {
+        await Promise.all(mongoose.connections.map(con => con.close()))
     })
 
 });
