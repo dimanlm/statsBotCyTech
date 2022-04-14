@@ -1,6 +1,6 @@
 import { MessageEmbed } from "discord.js";
 require('dotenv').config();
-import execute from '../commands/custom-commands/add';
+import execute from '../src/commands/custom-commands/add';
 const mongoose = require('mongoose');
 
 describe("Custom commands - not admin user", function () {

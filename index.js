@@ -5,8 +5,8 @@ const { Client, Intents, Collection } = require('discord.js');
 const mongoose = require('mongoose');
 const raygun = require('raygun');
 
-const prefix = require("./config/prefix.json");
-const customCmdModel = require('./models/customCmdSchema');
+const prefix = require("./src/config/prefix.json");
+const customCmdModel = require('./src/models/customCmdSchema');
 
 /************************************** */
 
@@ -22,18 +22,18 @@ const botClient = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUI
 
 botClient.commandsCollection = new Collection();
 
-const cmdDirs = fs.readdirSync('./commands');
+const cmdDirs = fs.readdirSync('./src/commands');
 
 /* Loop through subdirectories in commands directory */
 for (let dir of cmdDirs) {
     /* Read every subdirectory and filter for JS files */
-    let commandFiles = fs.readdirSync(`./commands/${dir}`)
+    let commandFiles = fs.readdirSync(`./src/commands/${dir}`)
     .filter(f => f.endsWith('.js'));
 
     /* Loop through every file */
     for (let file of commandFiles) {
         /* Set command file */
-        let command = require(`./commands/${dir}/${file}`);
+        let command = require(`./src/commands/${dir}/${file}`);
         botClient.commandsCollection.set(command.name, command);
     }
 }
