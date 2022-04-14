@@ -31,16 +31,13 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        fetch-depth: 0
         
     - name: Install Node dependencies
       run: npm i
     
     - name: Run unit and integration tests
       run: | 
-        npm test
-        echo DONE
-      
+        npm test      
     
     - name: SonarCloud scan
       uses: sonarsource/sonarcloud-github-action@master
