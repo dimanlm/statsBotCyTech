@@ -66,7 +66,7 @@ describe("Custom commands - not admin user", function () {
 
     // closing the connection
     afterAll(() => {
-        await Promise.all(mongoose.connections.map(con => con.close()))
+        mongoose.connection.close();
     })
 
 });

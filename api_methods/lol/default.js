@@ -30,7 +30,8 @@ module.exports = {
         for (let i in rota) {
             var r = rota[i];
             var j=0;
-            while(champ[j].key != r) {
+    
+            while(champ[j].key != r && (j<champ.length-1)) {
                 j++;
             }
             champions_list.push([champ[j].name, champ[j].title]);
