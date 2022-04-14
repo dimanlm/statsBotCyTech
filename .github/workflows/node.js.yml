@@ -19,7 +19,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     strategy:
       matrix:
         node-version: [16.x]
@@ -37,7 +37,10 @@ jobs:
       run: npm i
     
     - name: Run unit and integration tests
-      run: npm test
+      run: | 
+        npm test
+        echo DONE
+      
     
     - name: SonarCloud scan
       uses: sonarsource/sonarcloud-github-action@master
