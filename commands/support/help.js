@@ -87,7 +87,6 @@ module.exports = {
         
         // add the custom commands to the embed
         let customDB = await customCmdModel.find({ guildId: msg.guild.id })
-        console.log(customDB)
         // dont show the field if there's no custom commands
         if (customDB && customDB.length!=0){
             let cmdArray=[];

@@ -71,7 +71,6 @@ module.exports = {
             name[j] = champ[i].name;
             image[j] = champ[i].icon;
             mast[j] = summonerMastery[j].championPoints;
-            console.log(image[0])
         }
         
         var embedMsg = new MessageEmbed();
