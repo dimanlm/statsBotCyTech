@@ -10,6 +10,12 @@ async function execute(message,args) {
         return;
     }
     const ma = await lol.mastery(username);
+    console.log(ma);
+
+    if (ma == null) {
+        await message.reply("This player does not exist.");
+        return;
+    }
 
     await message.reply({embeds:[ma]});
 

@@ -51,13 +51,19 @@ module.exports = {
     },
 
     mastery: async function(username) {
-        const summonerInfo = await lol.getSummonerByName(username);
+        var summonerInfo;
+        try{
+            summonerInfo = await lol.getSummonerByName(username);
+        }catch(e){
+            console.log(e);
+            return null;
+        }
         var summonerMastery = await lol.getChampionMasteriesBySummoner(summonerInfo.id);
         summonerMastery = (summonerMastery.slice(0,5));
         var mast = [];
         var name = [];
         var image = [];
-        for (j in summonerMastery){
+        for (let j in summonerMastery){
             var i=0;
             while(champ[i].key != summonerMastery[j].championId) {
                 i++;
@@ -78,7 +84,6 @@ module.exports = {
         for (let i = 0; i<=4; i++) {
             embedMsg.addField(name[i], mast[i].toString());
         }
-        console.log(summonerInfo);
         return embedMsg;
         
     }

@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const customCmdModel = require('../models/customCmdSchema')
 const prefix = require('../config/prefix.json')
 
-describe("Admin -> Add custom commands", function () {
+describe("Admin -> Managing custom commands", function () {
     // message parameter initialization
     var adminMessage = {
         channel: {
@@ -89,6 +89,41 @@ describe("Admin -> Add custom commands", function () {
         adminMessage.guild.id = "1001";
         await execute.execute(adminMessage, [command, response]);
         expect(adminMessage.channel.send).toHaveBeenCalledWith({embeds:[successfullyAdded(command)]});
+    });
+
+    it("should edit the response of '$hello'", async () => {
+        adminMessage.reply = jest.fn();
+        var change = 'Mundo!'
+        adminMessage.content = "$edit" + "res" + command + change;
+        adminMessage.guild.id = "1001";
+        await execute.execute(adminMessage, [command, response]);
+        expect(adminMessage.channel.send).toBeDefined();
+    });
+
+    it("should edit the name of '$hello' to '$hola'", async () => {
+        adminMessage.reply = jest.fn();
+        var change = 'hola'
+        adminMessage.content = "$edit" + "name" + command + change;
+        adminMessage.guild.id = "1001";
+        await execute.execute(adminMessage, [command, response]);
+        expect(adminMessage.channel.send).toBeDefined();
+    });
+
+    it("should delete the command '$hola'", async () => {
+        adminMessage.reply = jest.fn();
+        var change = 'hola'
+        adminMessage.content = "$del" + change;
+        adminMessage.guild.id = "1001";
+        await execute.execute(adminMessage, [change, response]);
+        expect(adminMessage.channel.send).toBeDefined();
+    });
+
+    it("should not delete an inexistent command", async () => {
+        adminMessage.reply = jest.fn();
+        adminMessage.content = "$del" + command;
+        adminMessage.guild.id = "1001";
+        await execute.execute(adminMessage, [command, response]);
+        expect(adminMessage.channel.send).toBeDefined();
     });
 
 
