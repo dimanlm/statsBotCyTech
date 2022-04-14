@@ -1,6 +1,6 @@
 
 # Stats Bot
-[![build](https://github.com/dimanlm/statsBotCyTech/actions/workflows/node.js.yml/badge.svg)](https://github.com/dimanlm/statsBotCyTech/actions/workflows/node.js.yml)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/dimanlm/statsBotCyTech/build)
 ![GitHub issues](https://img.shields.io/github/issues/dimanlm/statsBotCyTech)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=dimanlm_statsBotCyTech&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=dimanlm_statsBotCyTech)
 
