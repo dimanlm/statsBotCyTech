@@ -13,8 +13,6 @@ const r6api = new R6API({ email, password });
 const { PLATFORM, REGION } = require("../../config/default.json");
 const ubi = require("./ubiapi.js");
 
-var embedStatMsg = new MessageEmbed()
-
 /**
  * Export functions
  */
@@ -41,6 +39,8 @@ module.exports = {
      * @returns an embed message
      */
     getSeasonalRankedSummary: async function (p){
+        var embedStatMsg = new MessageEmbed()
+
         let stats = await r6api.getRanks(PLATFORM, p.id, { regionIds: REGION, boardIds: 'pvp_ranked' });
         if (stats.length==0 ){
             embedStatMsg
@@ -78,6 +78,8 @@ module.exports = {
      * @returns embed message with stats
      */
     getSeasonalRankedStats: async function (p){
+        var embedStatMsg = new MessageEmbed()
+
         let stats = await r6api.getRanks(PLATFORM, p.id, { regionIds: REGION, boardIds: 'pvp_ranked' });
         //console.log(stats[0]);
         // if the promise of an array 'stats' is empty, there're no stats for this player
@@ -118,6 +120,8 @@ module.exports = {
      * @returns embed message with stats
      */
      getSeasonalCasualStats: async function (p){
+        var embedStatMsg = new MessageEmbed()
+
         let stats = await r6api.getRanks(PLATFORM, p.id, { regionIds: REGION, boardIds: 'pvp_casual' });
         //console.log(stats[0]);
         // if the promise of an array 'stats' is empty, there're no stats for this player
@@ -182,6 +186,8 @@ module.exports = {
      * @returns embed message with stats
      */
     getGeneralStats: async function (p){
+        var embedStatMsg = new MessageEmbed()
+
         let generalInfo = await r6api.getProgression(PLATFORM, p.id);
         let stats = await r6api.getStats(PLATFORM, p.id);
 
