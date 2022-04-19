@@ -1,10 +1,10 @@
 require('dotenv').config();
 
 import { MessageEmbed } from "discord.js";
-import execute from '../commands/custom-commands/add';
+import execute from '../src/commands/custom-commands/add';
 const mongoose = require('mongoose');
-const customCmdModel = require('../models/customCmdSchema')
-const prefix = require('../config/prefix.json')
+const customCmdModel = require('../src/models/customCmdSchema')
+const prefix = require('../src/config/prefix.json')
 
 describe("Admin -> Managing custom commands", function () {
     // message parameter initialization

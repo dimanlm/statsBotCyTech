@@ -1,7 +1,7 @@
-const lolAPI = require('../api_methods/lol/default');
-const summonerCommand = require('../commands/lol-stats/summoner');
-const championsCommand = require('../commands/lol-stats/champions');
-const masteryCommand = require('../commands/lol-stats/mastery');
+const lolAPI = require('../src/api_methods/lol/default');
+const summonerCommand = require('../src/commands/lol-stats/summoner');
+const championsCommand = require('../src/commands/lol-stats/champions');
+const masteryCommand = require('../src/commands/lol-stats/mastery');
 
 describe("Unit testing - League of Legents API", function () {    
         it("Summoner", async function () {

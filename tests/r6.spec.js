@@ -1,5 +1,5 @@
-const r6API = require('../api_methods/r6/default');
-const endpoints = require('../api_methods/r6/ubiapi')
+const r6API = require('../src/api_methods/r6/default');
+const endpoints = require('../src/api_methods/r6/ubiapi')
 
 
 describe("Unit testing - Ubisoft API", function () {
