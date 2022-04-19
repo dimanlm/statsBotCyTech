@@ -3,5 +3,13 @@
     "transform": {
         "^.+\\.jsx?$": "babel-jest"
     },
+    "coveragePathIgnorePatterns": [
+        "src/config/",
+        "src/media/",
+        "src/api_methods/r6",
+        "src/commands/_r6-stats",
+        "src/commands/custom-commands/delete.js",
+        "src/commands/custom-commands/edit.js"
+    ],
     "globalTeardown": "./test-teardown-globals.js"
 }
